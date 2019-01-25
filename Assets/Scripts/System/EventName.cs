@@ -5,11 +5,6 @@ public class EventName
 {
     public class UI
     {
-        //Announce,
-        //ShowInfoDetails,
-        //LanguageChanged,
-        //InsufficientFunds,
-        //OptionUpdate,
         public static string None() { return null; }
         public static string UpdateTalentTree() { return "UpdateTalentTree"; }
         public static string UpdateTargetMarks() { return "UpdateTargetMarks"; }
@@ -72,14 +67,6 @@ public class EventName
     }
     public class System
     {
-
-        //Turn,
-        //Upkeep,
-        //Produce,
-        //Build,
-        //Victory,
-        //Defeat,
-
         public static string Destroyed() { return "Destroyed"; }
         public static string GameModeChanged() { return "GameModeChanged"; }
         public static string NextScene() { return "NextScene"; }
@@ -88,8 +75,6 @@ public class EventName
     }
     public class AI
     {
-        //Building,
-        //Platform,
         public static string None() { return null; }
         public static List<string> Get() { return new List<string> { None() }; }
     }
