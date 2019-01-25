@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace FLT.ECS
 {
-    public class GameManager : MonoBehaviour
+    public class GameEntityManager : MonoBehaviour
     {
         EntityManager manager;
         public static class GM {

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace FLT.ECS
 {
-    public class MovementSystem : JobComponentSystem 
+    public class MoveSpeedComponent : JobComponentSystem 
 	{
         [ComputeJobOptimization]
         struct MovementJob : IJobProcessComponentData<Position, Rotation, MoveSpeed>
@@ -33,8 +33,8 @@ namespace FLT.ECS
         {
             MovementJob moveJob = new MovementJob
             {
-                topBound = GameManager.GM.topBound,
-                bottomBound = GameManager.GM.bottomBound,
+                topBound = GameEntityManager.GM.topBound,
+                bottomBound = GameEntityManager.GM.bottomBound,
                 deltaTime = Time.deltaTime
             };
 
