@@ -27,4 +27,10 @@ public class GameMessage
         selectionSize = value;
         return this;
     }
+    public int count;
+    public GameMessage WithCount(int value)
+    {
+        count = value;
+        return this;
+    }
 }

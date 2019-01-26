@@ -5,37 +5,22 @@ public class EventName
 {
     public class UI
     {
-        public static string None() { return null; }
-        public static string UpdateTalentTree() { return "UpdateTalentTree"; }
-        public static string UpdateTargetMarks() { return "UpdateTargetMarks"; }
-        public static List<string> Get() { return new List<string> { None(), UpdateTalentTree(), UpdateTargetMarks() }; }
+        public static string UpdPlayerCount() { return "UpdatePlayerCount"; }
+        public static string UpdLeaderboard() { return "UpdateTargetMarks"; }
+        public static string UpdWealth() { return "UpdWealth"; }
+        public static string UpdDistance() { return "UpdDistance"; }
+        public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance() }; }
     }
     public class Editor
     {
         public static string Redraw() { return "Redraw"; }
-        public static string None() { return null; }
-        public static List<string> Get() { return new List<string> { Redraw(), None() }; }
+        public static List<string> Get() { return new List<string> { Redraw() }; }
     }
     public class Input
     {
         public static string StartGame() { return "StartGame"; }
-        public static string CellSelected() { return "CellSelected"; }
-        public static string BuildingSelected() { return "BuildingSelected"; }
-        public static string BuildingMoved() { return "BuildingMoved"; }
-        public static string BuildLocationSettled() { return "BuildLocationSettled"; }
-        public static string Build() { return "Build"; }
-        public static string BuildMenuOpen() { return "BuildMenuOpen"; }
-        public static string BuildMenuClose() { return "BuildMenuClose"; }
-        public static string BuildMenuPostClose() { return "BuildMenuPostClose"; }
-        public static string SelectableSelected() { return "SelectableSelected"; }
-        public static string SelectableDeselected() { return "SelectableDeselected"; }
-        //VolumetricDragable:
-        public static string BeginDrag() { return "BeginDrag"; }
-        public static string Drag() { return "Drag"; }
-        public static string EndDrag() { return "EndDrag"; }
-        public static string ControllerLocation() { return "ControllerLocation"; }
-        //public static string Scroll() { return "Scroll"; } //later remove these. THese basic inputs have to be object dependend, not global systemic
-        public static string FactionSelected() { return "FactionSelected"; }
+        public static string BuildHouse() { return "BuildHouse"; }
+        public static string BuildHotel() { return "BuildHotel"; }
         public static string Back() { return "Back"; }
         public class Gem
         {
@@ -54,24 +39,17 @@ public class EventName
         }
         public static List<string> Get() { return new List<string> {
             StartGame(),
-            CellSelected(),
-            BuildingSelected(),
-            BuildingMoved(),
-            BuildLocationSettled(),
-            Build(), BuildMenuOpen(), BuildMenuClose(),BuildMenuPostClose(),
-            SelectableSelected(), SelectableDeselected(),
-            BeginDrag(),Drag(),EndDrag(),
-            ControllerLocation(),
-            FactionSelected(),
+            BuildHouse(),
+            BuildHotel(),
             Back()}.Concat(TalentUpgrade.Get()).Concat(Gem.Get()).ToList(); }
     }
     public class System
     {
         public static string Destroyed() { return "Destroyed"; }
-        public static string GameModeChanged() { return "GameModeChanged"; }
-        public static string NextScene() { return "NextScene"; }
+        public static string NetworkUpdateReceived() { return "NetworkUpdateReceived"; }
+        public static string SpawnPlayers() { return "SpawnPlayers"; }
         public static string LoadScene() { return "LoadScene"; }
-        public static List<string> Get() { return new List<string> { GameModeChanged(), Destroyed(), NextScene(), LoadScene() }; }
+        public static List<string> Get() { return new List<string> { NetworkUpdateReceived(), Destroyed(), SpawnPlayers(), LoadScene() }; }
     }
     public class AI
     {

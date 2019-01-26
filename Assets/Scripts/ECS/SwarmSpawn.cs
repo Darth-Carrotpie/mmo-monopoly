@@ -6,11 +6,11 @@ public class SwarmSpawn : MonoBehaviour
 {
     void Start()
     {
-        
+        EventManager.StartListening(EventName.System.SpawnPlayers(), SpawnPlayers);
     }
 
-    void Update()
-    {
+
+    void SpawnPlayers(GameMessage msg){
         
     }
 }
