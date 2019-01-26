@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Messages;
 
 public class BoardNetwork : MonoBehaviour
 {
@@ -11,9 +12,6 @@ public class BoardNetwork : MonoBehaviour
     private void Awake()
     {
         EventManager.StartListening(EventName.System.NetworkUpdateReceived(), LoadNodeData);
-    }
-    void Start()
-    {
         filePath = Path.Combine(Application.streamingAssetsPath, nodeDataFileName);
         Debug.Log("Start, Loading mockup json");
         LoadNodeData(GameMessage.Write());
@@ -38,6 +36,18 @@ public class BoardNetwork : MonoBehaviour
         {
             Debug.Log(filePath);
             Debug.LogError("Cannot load game data! - no file found");
+        }
+
+        if (File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            Message.ParseMessage(dataAsJson,
+            (State state) => {
+                Debug.Log("Getting state");
+            }, (Tile[] tiles) => {
+                Debug.Log("Getting tiles");
+                Debug.Log(tiles.Length);
+            });
         }
     }
 

@@ -61,7 +61,7 @@ public class BoardManager : MonoBehaviour
                     index = z;
                 }
             }
-            return index-1;
+            return index;
         }
         Debug.Log("last"+index);
         return index;

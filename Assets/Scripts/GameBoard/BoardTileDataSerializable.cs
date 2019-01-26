@@ -10,7 +10,7 @@ public class BoardTileDataSerializable
         foreach (BoardTile n in nArray)
         {
             board.Add(new BoardTileData(n));
-            Debug.Log(n.properties.color);
+            Debug.Log(n.color);
         }
     }
     public BoardTile[] Export()

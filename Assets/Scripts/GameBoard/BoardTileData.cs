@@ -6,12 +6,17 @@ public class BoardTileData
 {
     public string type;
     public BoardTileType typeId;
-    public BoardTileProperties properties;
+    public Messages.TileProperties properties;
 
     public BoardTileData(BoardTile n)
     {
         type = n.type;
         typeId = n.typeId;
-        properties = n.properties;
+        properties = new Messages.TileProperties();
+        properties.color = n.color;
+        properties.cost = n.cost;
+    }
+    public class Properties{
+
     }
 }
