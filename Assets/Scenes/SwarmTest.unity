@@ -823,6 +823,7 @@ GameObject:
   - component: {fileID: 1920019869}
   - component: {fileID: 1920019865}
   - component: {fileID: 1920019866}
+  - component: {fileID: 1920019867}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -871,6 +872,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41139b442b6958147a729bb162a55a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1920019867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920019863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae8d407d86593e479c44f3004215f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colNames:
+  - strName: orange
+    color: {r: 1, g: 0.5486495, b: 0, a: 1}
+  - strName: blue
+    color: {r: 0, g: 0.052369595, b: 1, a: 1}
+  - strName: green
+    color: {r: 0, g: 0.764151, b: 0.12306148, a: 1}
+  - strName: red
+    color: {r: 1, g: 0, b: 0.08614111, a: 1}
+  - strName: purple
+    color: {r: 0.7075472, g: 0, b: 0.6434751, a: 1}
+  - strName: gold
+    color: {r: 1, g: 0.89338535, b: 0, a: 1}
+  - strName: green2
+    color: {r: 0.68949676, g: 1, b: 0, a: 1}
+  - strName: orange2
+    color: {r: 1, g: 0.41844097, b: 0, a: 1}
+  - strName: red2
+    color: {r: 1, g: 0.28773582, b: 0.5826923, a: 1}
+  - strName: purple2
+    color: {r: 0.81111526, g: 0, b: 1, a: 1}
+  - strName: gold2
+    color: {r: 0.8490566, g: 0.8065937, b: 0, a: 1}
+  - strName: blue2
+    color: {r: 0.3066038, g: 0.6343253, b: 1, a: 1}
+  - strName: blue3
+    color: {r: 0, g: 0.70772946, b: 0.7735849, a: 1}
+  - strName: red3
+    color: {r: 0.8962264, g: 0.48616055, b: 0.49845773, a: 1}
+  - strName: green3
+    color: {r: 0.043387346, g: 0.7075472, b: 0.5728883, a: 1}
+  - strName: orange3
+    color: {r: 0.7058824, g: 0.42354175, b: 0.04313724, a: 1}
+  - strName: purple3
+    color: {r: 0.50564, g: 0.17007834, b: 0.9245283, a: 1}
+  - strName: gold3
+    color: {r: 0.6792453, g: 0.67746896, b: 0.33641866, a: 1}
 --- !u!114 &1920019868
 MonoBehaviour:
   m_ObjectHideFlags: 0

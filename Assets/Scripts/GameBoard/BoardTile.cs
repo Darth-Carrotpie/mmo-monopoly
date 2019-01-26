@@ -13,6 +13,7 @@ public class BoardTile : MonoBehaviour
 
     public TextMeshPro nameMesh;
     public TextMeshPro priceMesh;
+    public Renderer coloredHeader;
 
     public BoardTile(BoardTileData n, int index){
         //Debug.Log(index);
@@ -33,6 +34,7 @@ public class BoardTile : MonoBehaviour
         color = n.color;
         nameMesh.SetText(boardName);
         priceMesh.SetText("$"+cost);
+        coloredHeader.material.color = FindObjectOfType<TileColorGenerator>().GetColorValue(color);
     }
 }
 

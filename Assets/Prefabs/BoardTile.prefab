@@ -675,11 +675,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff26f73733561c4e994ef3d929cff0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardName: 
   address: 0
   type: new
   typeId: 0
+  cost: 0
+  color: 
   nameMesh: {fileID: 8180751428745581755}
   priceMesh: {fileID: 1065240564274674326}
+  coloredHeader: {fileID: 1259019552}
 --- !u!114 &1135196203484614676
 MonoBehaviour:
   m_ObjectHideFlags: 0

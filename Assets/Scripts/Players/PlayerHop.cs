@@ -7,10 +7,12 @@ public class PlayerHop : MonoBehaviour
     int currentPos = 0;
     int id;
     float timeToMove = 2f;
+    float maxTimeToMove = 2f;
     float timeCounter = 0f;
     SceneMovable movable;
     float actualNewPos;
     //public Player mainPlayer;
+    float maxPeudoDelay = 0.4f;
     void Start()
     {
         //mainPlayer = FindObjectOfType<PlayerNetwork>().player;
@@ -34,6 +36,10 @@ public class PlayerHop : MonoBehaviour
 
     void Hopping(){
         float vecZ = Mathf.Lerp(currentPos, actualNewPos, timeCounter/timeToMove);
-        transform.position = new Vector3(0, Mathf.Abs(Mathf.Sin(vecZ*Mathf.PI)), vecZ);
+        transform.position = new Vector3(0, Mathf.Abs(Mathf.Sin(vecZ*Mathf.PI))/2, vecZ);
+    }
+
+    void GenerateTimeToMove(){
+        timeToMove = maxTimeToMove - Random.Range(0, maxPeudoDelay);
     }
 }
