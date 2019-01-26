@@ -1,11 +1,13 @@
 const Settings = {
     // GAME
-    boardSize: 16,
+    boardSize: 64,
     initialCost: 100,
     costGrow: 50,
+    hotelCostMultiplier: 3,
     diceMin: 1,
     diceMax: 6,
     diceCount: 2,
+    doubleBonus: 100,
     // TILE
     tileTypes: {
         Street: {

@@ -7,11 +7,21 @@ const getTypeId = (type) => {
     return tileTypes.find((t) => t.type == type).id;
 }
 
+const randomItem = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+
 class Tile {
     constructor(type, properties) {
         this.type = type,
-        this.properties = properties;
-        this.typeId = getTypeId(type);
+            this.properties = properties;
+    }
+
+    getState() {
+        const state = { ...this };
+        state.typeId = getTypeId(state.type);
+        return state;
     }
 
     static Empty() {
@@ -24,13 +34,13 @@ class Tile {
 
     static RandomColor() {
         const colors = Object.values(Tile.Color);
-        return colors[Math.floor(Math.random()*colors.length)];
+        return randomItem(colors);
     }
 
     static RandomColorExcept(color) {
         const colors = Object.values(Tile.Color);
         colors.splice(colors.indexOf(color), 1);
-        return colors[Math.floor(Math.random()*colors.length)];
+        return colors[Math.floor(Math.random() * colors.length)];
     }
 
     static RandomType() {

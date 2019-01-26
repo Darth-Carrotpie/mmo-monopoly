@@ -4,6 +4,20 @@ const Game = require("./game");
 
 const game = new Game();
 // console.log(game);
-console.log(JSON.stringify(game));
+console.log("##  GET BOARD ##")
+console.log(JSON.stringify(game.getBoard()));
 
-console.log("LOADED");
+const randomItem = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+for (let i = 0; i < 5; i++) {
+    game.addPlayer();
+    game.advance();
+    game.players.forEach(player => {
+        player.intent = randomItem(player.possibleActions(game.board));
+    });
+}
+
+console.log("##  GET STATE ##")
+console.log(JSON.stringify(game.getState()));

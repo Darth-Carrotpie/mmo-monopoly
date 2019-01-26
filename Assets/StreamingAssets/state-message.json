@@ -1,0 +1,69 @@
+{
+    "message-type": "state",
+    "state": {
+        "turnCount": 5,
+        "players": [
+            {
+                "id": 4,
+                "position": 2,
+                "houses": [],
+                "hotels": [],
+                "cash": 1600,
+                "roll": [
+                    1,
+                    1
+                ]
+            },
+            {
+                "id": 3,
+                "position": 12,
+                "houses": [
+                    6
+                ],
+                "hotels": [],
+                "cash": 1250,
+                "roll": [
+                    3,
+                    3
+                ]
+            },
+            {
+                "id": 2,
+                "position": 24,
+                "houses": [
+                    7
+                ],
+                "hotels": [],
+                "cash": 800,
+                "roll": [
+                    4,
+                    4
+                ]
+            },
+            {
+                "id": 1,
+                "position": 31,
+                "houses": [],
+                "hotels": [],
+                "cash": 1700,
+                "roll": [
+                    2,
+                    5
+                ]
+            },
+            {
+                "id": 0,
+                "position": 34,
+                "houses": [
+                    7
+                ],
+                "hotels": [],
+                "cash": 700,
+                "roll": [
+                    4,
+                    1
+                ]
+            }
+        ]
+    }
+}
