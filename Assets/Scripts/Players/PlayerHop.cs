@@ -13,8 +13,8 @@ public class PlayerHop : MonoBehaviour
     float actualNewPos;
     //public Player mainPlayer;
     float maxPeudoDelay = 0.5f;
-    float pseudoDelay = 0f;
-    public bool trigger;
+    public float pseudoDelay = 0f;
+    bool trigger;
     float newPos;
     void Start()
     {
@@ -35,7 +35,7 @@ public class PlayerHop : MonoBehaviour
         if (trigger){
             timeCounter+=Time.deltaTime;
              if (timeCounter > pseudoDelay){
-                 Debug.Log("Trigger ended");
+                //Debug.Log("Trigger ended");
                 trigger = false;
                 timeCounter = 0;
                 actualNewPos = newPos;
@@ -43,13 +43,15 @@ public class PlayerHop : MonoBehaviour
             }       
         }
 
-        if (actualNewPos > currentPos){
-            timeCounter+=Time.deltaTime;
-            Hopping();
+        if (timeToMove > timeCounter ){
+            if(!trigger){
+                Hopping();
+            }
         }
     }
 
     void Hopping(){
+        timeCounter+=Time.deltaTime;
         float vecZ = Mathf.Lerp(currentPos, actualNewPos, timeCounter/timeToMove);
         transform.position = new Vector3(0, Mathf.Abs(Mathf.Sin(vecZ*Mathf.PI))/2, vecZ);
     }
