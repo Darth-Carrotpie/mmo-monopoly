@@ -1,5 +1,5 @@
 {
-    "message-type": "state",
+    "messageType": "state",
     "state": {
         "turnCount": 5,
         "players": [

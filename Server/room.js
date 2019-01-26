@@ -1,20 +1,20 @@
 const Settings = require("./Game/settings");
 
 const playerActions = Object.values(Settings.playerActions);
-const getIntentType = (id) => {
+const getActionType = (id) => {
     return playerActions.find((t) => t.id == id).type;
 }
 
 const boardMessage = (board) => {
     const message = {};
-    message["message-type"] = "board";
+    message.messageType = "board";
     message.board = board;
     return message;
 }
 
 const stateMessage = (state) => {
     const message = {};
-    message["message-type"] = "state";
+    message.messageType = "state";
     message.state = state;
     return message;
 }
@@ -27,7 +27,7 @@ class Human {
     }
 
     receiveMessage(message) {
-        if (message["message-type"] != "intent") {
+        if (message.messageType != "intent") {
             console.error("Invalid message received", message);
             return;
         }
@@ -37,7 +37,7 @@ class Human {
             return;
         }
 
-        this.player.intent = getIntentType(message.intent.intentId);
+        this.player.intent = getActionType(message.intent.actionId);
     }
 }
 

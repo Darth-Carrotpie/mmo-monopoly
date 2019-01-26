@@ -14,9 +14,9 @@
             ws.onopen = function () {
                // Web Socket is connected, send data using send()
                const json = {
-                  "message-type": "intent",
+                  "messageType": "intent",
                   "intent": {
-                     "intentId": 0,
+                     "actionId": 0,
                      "turnCount": 0
                   }
                }
