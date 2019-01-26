@@ -15,9 +15,9 @@ for (let i = 0; i < 5; i++) {
     game.addPlayer();
     game.advance();
     game.players.forEach(player => {
-        player.intent = randomItem(player.possibleActions(game.board));
+        player.intent = randomItem(player.possibleActions(game.board).map((a) => a.type));
     });
 }
 
 console.log("##  GET STATE ##")
-console.log(JSON.stringify(game.getState()));
+console.log(JSON.stringify(game.getState(0)));

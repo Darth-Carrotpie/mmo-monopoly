@@ -1,0 +1,7 @@
+{
+    "message-type": "intent",
+    "intent": {
+        "intentId": 0,
+        "turnCount": 0
+    }
+}

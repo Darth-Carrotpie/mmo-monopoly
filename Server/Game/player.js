@@ -26,14 +26,26 @@ class Player {
     possibleActions(board) {
         const tile = board[this.position];
         const actions = [];
-        actions.push(Player.Action.Nothing); // Can do nothing all the time
+        actions.push({
+            type: Player.Action.Nothing,
+            id: getTypeId(Player.Action.Nothing),
+            cost: 0,
+        }); // Can do nothing all the time
         if (tile.type == Tile.Type.Street) {
             if (this.cash > tile.properties.cost) {
-                actions.push(Player.Action.BuyHouse);
+                actions.push({
+                    type: Player.Action.BuyHouse,
+                    id: getTypeId(Player.Action.BuyHouse),
+                    cost: tile.properties.cost,
+                });
             }
             // TODO: add check for 3 same color houses
             if (this.cash > tile.properties.cost * Settings.hotelCostMultiplier) {
-                actions.push(Player.Action.BuyHotel);
+                actions.push({
+                    type: Player.Action.BuyHotel,
+                    id: getTypeId(Player.Action.BuyHotel),
+                    cost: tile.properties.cost * Settings.hotelCostMultiplier,
+                });
             }
         }
         return actions;

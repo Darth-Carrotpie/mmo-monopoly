@@ -27,10 +27,17 @@ class Game {
         return this.board.map((t) => t.getState());;
     }
 
-    getState() {
+    getState(playerId) {
         const state = {};
         state.turnCount = this.turnCount;
         state.players = this.players.map((p) => p.getState());
+
+        const player = this.players.find((p) => p.id == playerId);
+        if (player) {
+            state.me = player.getState();
+            state.me.possibleActions = player.possibleActions(this.board);
+        }
+
         return state;
     }
 
@@ -102,9 +109,9 @@ class Game {
     static build(players, board) {
         players.forEach(player => {
             const currentTile = board[player.position];
-            const possibleActions = player.possibleActions(board);
+            const possibleActions = player.possibleActions(board).map((a) => a.type);
             if (!possibleActions.includes(player.intent)) {
-                console.error("Impossible intent for player", player);
+                console.error("Impossible intent for player", player, possibleActions);
                 return;
             }
 
