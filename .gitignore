@@ -52,3 +52,7 @@ ehthumbs.db
 # Temp files
 *.png~
 *.kra
+
+# Server stuff
+
+[Ss]erver/node_modules/
