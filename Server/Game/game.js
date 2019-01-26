@@ -4,6 +4,17 @@ const Tile = require("./tile");
 class Game {
     constructor() {
         this.board = Game.generateBoard(); // Array of tiles
+        this.turnCount = 0;
+        this.playerCounter = 0;
+        this.players = [];
+    }
+
+    getBoard() {
+        return this.board;
+    }
+
+    getState() {
+
     }
 
     static generateBoard() {

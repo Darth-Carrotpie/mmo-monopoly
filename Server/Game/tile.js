@@ -3,10 +3,15 @@ const Settings = require("./settings");
 const tileTypes = Object.values(Settings.tileTypes);
 const totalChance = tileTypes.map((tc) => tc.chance).reduce((a, b) => a + b, 0);
 
+const getTypeId = (type) => {
+    return tileTypes.find((t) => t.type == type).id;
+}
+
 class Tile {
     constructor(type, properties) {
         this.type = type,
         this.properties = properties;
+        this.typeId = getTypeId(type);
     }
 
     static Empty() {
