@@ -64,6 +64,29 @@
                     1
                 ]
             }
-        ]
+        ],
+        "me": {
+            "id": 0,
+            "position": 16,
+            "houses": [],
+            "hotels": [],
+            "cash": 1600,
+            "roll": [
+                3,
+                2
+            ],
+            "possibleActions": [
+                {
+                    "type": "nothing",
+                    "id": 0,
+                    "cost": 0
+                },
+                {
+                    "type": "buy-house",
+                    "id": 1,
+                    "cost": 850
+                }
+            ]
+        }
     }
 }

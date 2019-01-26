@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+   <script type="text/javascript">
+      function WebSocketTest() {
+         if ("WebSocket" in window) {
+            console.log("WebSocket is supported by your Browser!");
+
+            // Let us open a web socket
+            var ws = new WebSocket("ws://localhost:2048/", 'ggj-protocol');
+
+            ws.onopen = function () {
+               // Web Socket is connected, send data using send()
+               const json = {
+                  "message-type": "intent",
+                  "intent": {
+                     "intentId": 0,
+                     "turnCount": 0
+                  }
+               }
+
+               ws.send(JSON.stringify(json));
+               // console.log("Message is sent...");
+            };
+
+            ws.onmessage = function (evt) {
+               var received_msg = evt.data;
+               console.log("Message is received...", received_msg);
+            };
+
+            ws.onclose = function () {
+               // websocket is closed.
+               console.log("Connection is closed...");
+            };
+         }
+
+         else {
+            // The browser doesn't support WebSocket
+            console.error("WebSocket NOT supported by your Browser!");
+         }
+      }
+      WebSocketTest();
+   </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
