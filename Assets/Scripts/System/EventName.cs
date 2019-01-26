@@ -45,24 +45,20 @@ public class EventName
     }
     public class System
     {
-        public static string Destroyed() { return "Destroyed"; }
+        public static string UpdateBoard() { return "UpdateBoard"; }
+        public static string MoveBoard() { return "MoveBoard"; }
         public static string NetworkUpdateReceived() { return "NetworkUpdateReceived"; }
         public static string SpawnPlayers() { return "SpawnPlayers"; }
         public static string LoadScene() { return "LoadScene"; }
-        public static List<string> Get() { return new List<string> { NetworkUpdateReceived(), Destroyed(), SpawnPlayers(), LoadScene() }; }
+        public static List<string> Get() { return new List<string> { NetworkUpdateReceived(), UpdateBoard(),MoveBoard(), SpawnPlayers(), LoadScene() }; }
     }
-    public class AI
-    {
-        public static string None() { return null; }
-        public static List<string> Get() { return new List<string> { None() }; }
-    }
+
     public List<string> Get()
     {
         return new List<string> { }.Concat(UI.Get())
                                     .Concat(Editor.Get())
                                     .Concat(Input.Get())
                                     .Concat(System.Get())
-                                    .Concat(AI.Get())
                                     .Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
     }
 }
