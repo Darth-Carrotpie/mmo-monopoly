@@ -2,8 +2,8 @@ const Settings = {
     // GAME
     boardSize: 256,
     initialCost: 100,
-    costGrow: 50,
-    hotelCostMultiplier: 3,
+    costGrow: 20,
+    hotelCostMultiplier: 2,
     diceMin: 1,
     diceMax: 6,
     diceCount: 2,

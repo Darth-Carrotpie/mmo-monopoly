@@ -58,7 +58,7 @@ class Room {
 
     join(sendMessage) {
         const human = new Human(this.game.addPlayer(), sendMessage, this.game);
-        human.sendMessage(boardMessage(this.game.getBoard()));
+        human.sendMessage(boardMessage(this.game.getBoard(human.player.id)));
         this.humans.push(human);
         return human;
     }

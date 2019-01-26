@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Messages
@@ -8,7 +7,7 @@ namespace Messages
 public class Message {
     public string messageType;
 
-    public static void ParseMessage(string json, Action<State> onStateReceived, Action<Tile[]> onBoardReceived) {
+    public static void ParseMessage(string json, System.Action<State> onStateReceived, System.Action<Tile[]> onBoardReceived) {
         try
         {
             Message message = JsonUtility.FromJson<Message>(json);
@@ -23,7 +22,7 @@ public class Message {
                     onBoardReceived(boardMessage.board);
                     break;
                 default:
-                    throw new Exception("Unsupported messageType: " + message.messageType);
+                    throw new System.Exception("Unsupported messageType: " + message.messageType);
             }
         }
         catch (System.Exception ex)

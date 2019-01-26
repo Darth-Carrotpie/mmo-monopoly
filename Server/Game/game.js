@@ -122,7 +122,7 @@ class Game {
 
             if (player.intent == Player.Action.BuyHotel) {
                 player.cash -= currentTile.properties.cost * Settings.hotelCostMultiplier;
-                player.houses.push(player.position);
+                player.hotels.push(player.position);
             }
         });
     }

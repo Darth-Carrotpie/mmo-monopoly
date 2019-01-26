@@ -76,3 +76,57 @@ static class Tester {
         }
     }
 }
+
+public class MessageTester : MonoBehaviour {
+    private IMessenger messenger;
+
+    void Start() {
+        this.messenger = new DummyMessenger(this);
+        this.messenger.Connect(this.OnStateReceived, this.OnBoardReceived);
+    }
+
+    void OnStateReceived(State state) {
+        Debug.Log(
+            "Receiving state for turn: " + state.turnCount + " Players: " + state.players.Length + "\n" +
+            "Cash: " + state.me.cash +
+            " Position: " + state.me.position +
+            " Roll: " + MessageTester.ArrayString(state.me.roll) +
+            " Houses: " + MessageTester.ArrayString(state.me.houses) +
+            " Hotels: " + MessageTester.ArrayString(state.me.hotels)
+        );
+    }
+
+    void OnBoardReceived(Tile[] tiles) {
+        int streets = 0;
+        int empties = 0;
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            Tile tile = tiles[i];
+            if (tile.typeId == TileType.Street) {
+                streets++;
+            }
+            if (tile.typeId == TileType.Empty) {
+                empties++;
+            }
+        }
+        Debug.Log(
+            "Board received.\n" +
+            "Tiles: " + tiles.Length + " Streets: " + streets + " Empty: " + empties
+        );
+    }
+
+    static string ArrayString(int[] array) {
+        if (array.Length == 0) {
+            return "[]";
+        }
+
+        string s = "[";
+        for (int i = 0; i < array.Length; i++)
+        {
+            s += array[i] + ", ";
+        }
+        s = s.Remove(s.Length - 2);
+        s += "]";
+        return s;
+    }
+}
