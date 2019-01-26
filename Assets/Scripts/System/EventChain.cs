@@ -5,17 +5,10 @@ using UnityEngine;
 public class EventChain : MonoBehaviour {
     //public Animator stateMachine;
     void Start () {
-        //EventManager.Attach(EventName.Input.BuildLocationSettled(), UpdateTargetMarks);
-        //EventManager.Attach(EventName.Input.FactionSelected(), UpdateTalentTree);
-    }
-    
-    void UpdateTargetMarks(GameMessage msg)
-    {
-        //EventManager.TriggerEvent(EventName.UI.UpdateTargetMarks(), GameMessage.Write().WithTargeting(msg.targeting));
+        EventManager.Attach(EventName.Player.NewPosition(), UpdateBoard);
     }
 
-    void UpdateTalentTree(GameMessage msg)
-    {
-        //EventManager.TriggerEvent(EventName.UI.UpdateTalentTree(), msg);
+    void UpdateBoard(GameMessage msg){
+        EventManager.TriggerEvent(EventName.System.UpdateBoard(), GameMessage.Write());
     }
 }

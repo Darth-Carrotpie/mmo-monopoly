@@ -15,8 +15,8 @@ public class BoardNetwork : MonoBehaviour
     void Start()
     {
         filePath = Path.Combine(Application.streamingAssetsPath, nodeDataFileName);
-        Debug.Log("Start");
-        //LoadNodeData();
+        Debug.Log("Start, Loading mockup json");
+        LoadNodeData(GameMessage.Write());
     }
     void Update(){
         if (Input.GetKeyDown(KeyCode.L)){
@@ -26,11 +26,10 @@ public class BoardNetwork : MonoBehaviour
     private void LoadNodeData(GameMessage msg)
     {
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
-
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
-            Debug.Log("json: " + dataAsJson);
+            //Debug.Log("json: " + dataAsJson);
             BoardTileDataSerializable loadedData = JsonUtility.FromJson<BoardTileDataSerializable>(dataAsJson);
 
             tiles = loadedData.Export();

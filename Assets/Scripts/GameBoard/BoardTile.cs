@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BoardTile : MonoBehaviour
 {
+    public int address;
     public string type;
     public BoardTileType typeId;
     public BoardTileProperties properties;
 
-    public BoardTile(BoardTileData n){
-        Debug.Log(n.type);
+    public BoardTile(BoardTileData n, int index){
+        //Debug.Log(index);
+        address = index;
         type = n.type;
         typeId = n.typeId;
         properties.cost = n.properties.cost;
         properties.color = n.properties.color;
     }
     public void Init(BoardTile n){
-        Debug.Log(n.type);
+        //Debug.Log(n.type);
+        address = n.address;
         type = n.type;
         typeId = n.typeId;
         properties.cost = n.properties.cost;

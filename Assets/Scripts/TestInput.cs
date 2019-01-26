@@ -6,7 +6,7 @@ public class TestInput : MonoBehaviour
 {
     public int spawnCount = 20;
     public int position;
-    int step = 5;
+    int step = 4;
 
     void Update()
     {

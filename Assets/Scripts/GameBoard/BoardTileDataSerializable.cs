@@ -15,11 +15,10 @@ public class BoardTileDataSerializable
     }
     public BoardTile[] Export()
     {
-        Debug.Log(board[0]);
         List<BoardTile> ns = new List<BoardTile>();
-        foreach (BoardTileData n in board)
+        for (int i = 0; i < board.Count;i++)
         {
-            ns.Add(new BoardTile(n));
+            ns.Add(new BoardTile(board[i], i));
         }
         return ns.ToArray();
     }

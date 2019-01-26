@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class ScrollScene : MonoBehaviour
 {
-    public Player mainPlayer;
-    public int totalDif;
+    //public Player mainPlayer;
+    //public int totalDif;
+    float delay = 2f;
+    float counter;
+    public bool trigger;
     void Start()
     {
-        EventManager.StartListening(EventName.System.MoveBoard(), OnMoveBoard);
+        EventManager.StartListening(EventName.Player.NewPosition(), OnMoveBoard);
     }
 
     void OnMoveBoard(GameMessage msg){
-        List<SceneMovable> movables = new List<SceneMovable>(Resources.FindObjectsOfTypeAll(typeof(SceneMovable)) as SceneMovable[]);
+        trigger = true;
+    }
 
-        //if(msg.)
+    void Update(){
+        if (trigger){
+            counter += Time.deltaTime;
+            if (counter > delay){
+                trigger = false;
+                counter = 0;
+                EventManager.TriggerEvent(EventName.System.MoveBoard(), GameMessage.Write());
+            }
+        }
     }
 }
