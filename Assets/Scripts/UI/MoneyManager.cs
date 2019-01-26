@@ -11,7 +11,7 @@ public class MoneyManager : MonoBehaviour
     public Text MoneyBalanceCount;
     public Text MoneyTransactionCount;
 
-    void Update()
+    void ServerRoll()
     {
         playerMoneyChange = 100;
         MoneyTotalCount.GetComponent<Text>().text = "$" + playerMoneyChange.ToString();

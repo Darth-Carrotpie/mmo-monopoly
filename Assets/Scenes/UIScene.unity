@@ -261,7 +261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &322581632
@@ -429,39 +429,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1787485915440185019}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &369094358 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4379725266062554509, guid: 31a74df1e93720746af864d8c86df549,
-    type: 3}
-  m_PrefabInstance: {fileID: 1998026686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &369094359 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2074622130212465833, guid: 31a74df1e93720746af864d8c86df549,
     type: 3}
   m_PrefabInstance: {fileID: 1998026686}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &369094360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369094358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e827a4a8afbea1148a922a392675d2f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoneyTotalCount: {fileID: 0}
-  MoneyBalanceCount: {fileID: 0}
-  MoneyTransactionCount: {fileID: 0}
 --- !u!1001 &471553962
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 614531192}
+    m_TransformParent: {fileID: 1074720508}
     m_Modifications:
     - target: {fileID: 3350881380204964420, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -526,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 465
+      value: 444.2
       objectReference: {fileID: 0}
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -536,7 +515,7 @@ PrefabInstance:
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -740,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 4782417574251236732, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_Text
-      value: $ 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782417574251236732, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -788,7 +767,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 369094359}
-  - {fileID: 220433010}
   - {fileID: 636332363}
   - {fileID: 1413965340}
   - {fileID: 693604688}
@@ -983,9 +961,10 @@ GameObject:
   - component: {fileID: 789989730}
   - component: {fileID: 789989729}
   - component: {fileID: 789989728}
+  - component: {fileID: 789989731}
   m_Layer: 5
-  m_Name: HotelButton
-  m_TagString: Untagged
+  m_Name: BuyHotelButton
+  m_TagString: Hotel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,12 +1029,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: ef48bd8ebb9f0404e865024dbbeb1014, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 789989731}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1100,6 +1079,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789989726}
   m_CullTransparentMesh: 0
+--- !u!114 &789989731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789989726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f130798b4fb7df4ca8c846d4a5467a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024225199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,13 +1199,14 @@ RectTransform:
   m_Children:
   - {fileID: 519426213}
   - {fileID: 1417901013}
+  - {fileID: 220433010}
   - {fileID: 195896732}
   m_Father: {fileID: 98606642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1320066562
@@ -1358,9 +1350,10 @@ GameObject:
   - component: {fileID: 1349899423}
   - component: {fileID: 1349899422}
   - component: {fileID: 1349899421}
+  - component: {fileID: 1349899424}
   m_Layer: 5
-  m_Name: HouseButton
-  m_TagString: Untagged
+  m_Name: BuyHouseButton
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1425,12 +1418,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: ef48bd8ebb9f0404e865024dbbeb1014, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1349899424}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1475,6 +1468,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349899419}
   m_CullTransparentMesh: 0
+--- !u!114 &1349899424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349899419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74de6d57b095e242b6bf7d300603c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1413965340 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
@@ -1682,7 +1687,7 @@ PrefabInstance:
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -2225,12 +2230,12 @@ PrefabInstance:
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27.8
+      value: -32.400005
       objectReference: {fileID: 0}
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -148.7
+      value: -146.7
       objectReference: {fileID: 0}
     - target: {fileID: 2274513663661482527, guid: e46a7a5e5c3adf149bc8dac9a966e6a4,
         type: 3}
@@ -2539,12 +2544,12 @@ PrefabInstance:
     - target: {fileID: 2074622130212465833, guid: 31a74df1e93720746af864d8c86df549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -33.4
+      value: -38
       objectReference: {fileID: 0}
     - target: {fileID: 2074622130212465833, guid: 31a74df1e93720746af864d8c86df549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -151
+      value: -149
       objectReference: {fileID: 0}
     - target: {fileID: 2074622130212465833, guid: 31a74df1e93720746af864d8c86df549,
         type: 3}
