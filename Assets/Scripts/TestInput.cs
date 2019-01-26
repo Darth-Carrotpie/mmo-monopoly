@@ -14,5 +14,6 @@ public class TestInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B)){
             EventManager.TriggerEvent(EventName.System.UpdateBoard(), GameMessage.Write());
         }
+
     }
 }

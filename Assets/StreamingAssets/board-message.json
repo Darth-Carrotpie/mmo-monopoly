@@ -1,0 +1,105 @@
+{
+    "message-type": "board",
+    "board": [
+        {
+            "type": "empty",
+            "properties": {}
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 150,
+                "color": "red"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 200,
+                "color": "orange"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 250,
+                "color": "green"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 300,
+                "color": "red"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 350,
+                "color": "orange"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 400,
+                "color": "green"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 450,
+                "color": "orange"
+            }
+        },
+        {
+            "type": "empty",
+            "properties": {}
+        },
+        {
+            "type": "empty",
+            "properties": {}
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 600,
+                "color": "red"
+            }
+        },
+        {
+            "type": "empty",
+            "properties": {}
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 700,
+                "color": "red"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 750,
+                "color": "blue"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 800,
+                "color": "orange"
+            }
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 850,
+                "color": "green"
+            }
+        }
+    ]
+}
