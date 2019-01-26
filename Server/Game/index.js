@@ -7,6 +7,7 @@ const game = new Game();
 console.log("##  GET BOARD ##")
 console.log(JSON.stringify(game.getBoard()));
 
+/*
 const randomItem = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 }
@@ -21,3 +22,4 @@ for (let i = 0; i < 5; i++) {
 
 console.log("##  GET STATE ##")
 console.log(JSON.stringify(game.getState(0)));
+*/

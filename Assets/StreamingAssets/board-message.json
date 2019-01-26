@@ -2,10 +2,15 @@
     "messageType": "board",
     "board": [
         {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
             "type": "street",
             "properties": {
                 "cost": 100,
-                "color": "orange"
+                "color": "blue3"
             },
             "typeId": 0
         },
@@ -13,7 +18,7 @@
             "type": "street",
             "properties": {
                 "cost": 150,
-                "color": "blue"
+                "color": "blue2"
             },
             "typeId": 0
         },
@@ -21,7 +26,23 @@
             "type": "street",
             "properties": {
                 "cost": 200,
-                "color": "orange"
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 250,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 300,
+                "color": "gold2"
             },
             "typeId": 0
         },
@@ -31,58 +52,30 @@
             "typeId": 1
         },
         {
-            "type": "street",
-            "properties": {
-                "cost": 300,
-                "color": "green"
-            },
-            "typeId": 0
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
         },
         {
-            "type": "street",
-            "properties": {
-                "cost": 350,
-                "color": "red"
-            },
-            "typeId": 0
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
         },
         {
-            "type": "street",
-            "properties": {
-                "cost": 400,
-                "color": "orange"
-            },
-            "typeId": 0
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
         },
         {
-            "type": "street",
-            "properties": {
-                "cost": 450,
-                "color": "blue"
-            },
-            "typeId": 0
-        },
-        {
-            "type": "street",
-            "properties": {
-                "cost": 500,
-                "color": "red"
-            },
-            "typeId": 0
-        },
-        {
-            "type": "street",
-            "properties": {
-                "cost": 550,
-                "color": "red"
-            },
-            "typeId": 0
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
         },
         {
             "type": "street",
             "properties": {
                 "cost": 600,
-                "color": "blue"
+                "color": "red"
             },
             "typeId": 0
         },
@@ -90,7 +83,7 @@
             "type": "street",
             "properties": {
                 "cost": 650,
-                "color": "orange"
+                "color": "green"
             },
             "typeId": 0
         },
@@ -103,15 +96,18 @@
             "typeId": 0
         },
         {
-            "type": "empty",
-            "properties": {},
-            "typeId": 1
+            "type": "street",
+            "properties": {
+                "cost": 750,
+                "color": "blue3"
+            },
+            "typeId": 0
         },
         {
             "type": "street",
             "properties": {
                 "cost": 800,
-                "color": "red"
+                "color": "gold"
             },
             "typeId": 0
         },
@@ -119,7 +115,1801 @@
             "type": "street",
             "properties": {
                 "cost": 850,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 900,
                 "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 950,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1000,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1050,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1150,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1200,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1250,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1350,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1400,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1450,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1500,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1650,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1700,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1750,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1800,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1850,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 1950,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2000,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2050,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2100,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2150,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2200,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2250,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2300,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2350,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2500,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2550,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2600,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2650,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2700,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2750,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2800,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 2950,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3000,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3050,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3150,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3200,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3250,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3300,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3350,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3400,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3450,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3500,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3600,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3650,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3700,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3750,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 3800,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4050,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4100,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4150,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4200,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4250,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4400,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4450,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4500,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4550,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4600,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4650,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4700,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4800,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4850,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4900,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 4950,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5000,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5050,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5200,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5250,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5350,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5400,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5450,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5550,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5600,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5650,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5700,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5750,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5800,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5850,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 5950,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6000,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6050,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6150,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6200,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6250,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6300,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6350,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6400,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6450,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6500,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6550,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6650,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6700,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6750,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6800,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6850,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 6900,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7000,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7100,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7150,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7250,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7350,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7400,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7450,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7500,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7550,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7600,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7700,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7750,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7800,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7850,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7900,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 7950,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8000,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8050,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8100,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8150,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8200,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8250,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8300,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8350,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8400,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8450,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8500,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8550,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8600,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8650,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8700,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8750,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8800,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8850,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8900,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 8950,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9050,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9100,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9200,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9250,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9300,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9350,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9400,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9450,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9500,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9550,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9600,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9650,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9700,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9800,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9850,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9900,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 9950,
+                "color": "purple"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10000,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10050,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10200,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10250,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10350,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10400,
+                "color": "purple3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10450,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10500,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10600,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10700,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10750,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10850,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10900,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 10950,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11000,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11050,
+                "color": "green3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11100,
+                "color": "blue3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11150,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11200,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11250,
+                "color": "orange3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11300,
+                "color": "gold"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11350,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11400,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11450,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11500,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11550,
+                "color": "red2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11600,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11650,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11700,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11750,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11800,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 11900,
+                "color": "gold2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12000,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12050,
+                "color": "purple2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12100,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12150,
+                "color": "red3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12200,
+                "color": "green2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12250,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12300,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12350,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12400,
+                "color": "orange2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12450,
+                "color": "red"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12500,
+                "color": "orange"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12550,
+                "color": "green"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "empty",
+            "properties": {},
+            "typeId": 1
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12650,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12700,
+                "color": "blue2"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12750,
+                "color": "blue"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12800,
+                "color": "gold3"
+            },
+            "typeId": 0
+        },
+        {
+            "type": "street",
+            "properties": {
+                "cost": 12850,
+                "color": "orange2"
             },
             "typeId": 0
         }

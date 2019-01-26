@@ -33,12 +33,11 @@ class Tile {
     }
 
     static RandomColor() {
-        const colors = Object.values(Tile.Color);
-        return randomItem(colors);
+        return randomItem(Settings.tileColors);
     }
 
     static RandomColorExcept(color) {
-        const colors = Object.values(Tile.Color);
+        const colors = Settings.tileColors.map((c) => c);
         colors.splice(colors.indexOf(color), 1);
         return colors[Math.floor(Math.random() * colors.length)];
     }
@@ -63,13 +62,6 @@ class Tile {
 Tile.Type = {
     Street: "street",
     Empty: "empty"
-}
-
-Tile.Color = {
-    Red: "red",
-    Blue: "blue",
-    Orange: "orange",
-    Green: "green",
 }
 
 module.exports = Tile;

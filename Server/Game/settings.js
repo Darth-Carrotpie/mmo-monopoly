@@ -1,6 +1,6 @@
 const Settings = {
     // GAME
-    boardSize: 64,
+    boardSize: 256,
     initialCost: 100,
     costGrow: 50,
     hotelCostMultiplier: 3,
@@ -9,6 +9,26 @@ const Settings = {
     diceCount: 2,
     doubleBonus: 100,
     // TILE
+    tileColors: [
+        "orange",
+        "blue",
+        "green",
+        "red",
+        "purple",
+        "gold",
+        "orange2",
+        "blue2",
+        "green2",
+        "red2",
+        "purple2",
+        "gold2",
+        "orange3",
+        "blue3",
+        "green3",
+        "red3",
+        "purple3",
+        "gold3",
+    ],
     tileTypes: {
         Street: {
             id: 0,
