@@ -8,11 +8,14 @@ public class PlayerHop : MonoBehaviour
     int id;
     float timeToMove = 2f;
     float maxTimeToMove = 2f;
-    float timeCounter = 0f;
+    public float timeCounter = 0f;
     SceneMovable movable;
     float actualNewPos;
     //public Player mainPlayer;
-    float maxPeudoDelay = 0.4f;
+    float maxPeudoDelay = 0.5f;
+    float pseudoDelay = 0f;
+    public bool trigger;
+    float newPos;
     void Start()
     {
         //mainPlayer = FindObjectOfType<PlayerNetwork>().player;
@@ -22,12 +25,24 @@ public class PlayerHop : MonoBehaviour
 
     void NewPostionTrigger(GameMessage msg){
         if (id == msg.id){
+            GenerateTimeToMove();
+            trigger = true;
             timeCounter = 0;
-            actualNewPos = msg.position + movable.totalDif;
-            currentPos = (int)Mathf.Round(transform.position.z);
+            newPos = msg.position + movable.totalDif;
         }
     }
     void Update(){
+        if (trigger){
+            timeCounter+=Time.deltaTime;
+             if (timeCounter > pseudoDelay){
+                 Debug.Log("Trigger ended");
+                trigger = false;
+                timeCounter = 0;
+                actualNewPos = newPos;
+                currentPos = (int)Mathf.Round(transform.position.z);
+            }       
+        }
+
         if (actualNewPos > currentPos){
             timeCounter+=Time.deltaTime;
             Hopping();
@@ -40,6 +55,7 @@ public class PlayerHop : MonoBehaviour
     }
 
     void GenerateTimeToMove(){
-        timeToMove = maxTimeToMove - Random.Range(0, maxPeudoDelay);
+        pseudoDelay = Random.Range(0, maxPeudoDelay/2f);
+        timeToMove = maxTimeToMove - pseudoDelay*2f;
     }
 }

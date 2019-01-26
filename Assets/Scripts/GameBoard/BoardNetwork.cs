@@ -60,7 +60,7 @@ public class BoardNetwork : MonoBehaviour
         foreach(BoardTile tile in tiles){
             int index = Random.Range(0, nameCount);
             tile.boardName = cityNames[index];
-            Debug.Log("new name: "+tile.boardName);
+            //Debug.Log("new name: "+tile.boardName);
         }
     }
 }
