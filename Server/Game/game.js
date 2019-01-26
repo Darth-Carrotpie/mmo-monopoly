@@ -1,5 +1,6 @@
 const Settings = require("./settings");
 const Tile = require("./tile");
+const Player = require("./player");
 
 class Game {
     constructor() {
@@ -14,11 +15,25 @@ class Game {
     }
 
     getState() {
+        const state = {};
+        state.turnCount = this.turnCount;
+        state.players = this.players;
+    }
+
+    addPlayer() {
+        const player = new Player(this.playerCounter);
+        this.players.push(player);
+        this.playerCounter++;
+        return player;
+    }
+
+    advance() {
 
     }
 
     static generateBoard() {
         const board = [];
+        board.push(Tile.Empty()); // First tile is always empty
         for (let i = 0; i < Settings.boardSize; i++) {
             board.push(Game.randomTile(i));
         }

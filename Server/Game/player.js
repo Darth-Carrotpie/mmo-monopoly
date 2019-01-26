@@ -9,6 +9,7 @@ const getTypeId = (type) => {
 class Player {
     constructor(id) {
         this.id = id; // Unique id
+        this.position = 0; // All players start at 0
         this.houses = []; // Array of board indices
         this.hotels = []; // Array of board indices
         this.cash = Settings.initialMoney;
