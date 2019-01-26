@@ -20,5 +20,8 @@ public class TestInput : MonoBehaviour
             position+=step;
             EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithPosition(position).WithID(0));
         }
+        if (Input.GetKeyDown(KeyCode.L)){
+            EventManager.TriggerEvent(EventName.System.NetworkUpdateReceived(), GameMessage.Write());
+        }
     }
 }

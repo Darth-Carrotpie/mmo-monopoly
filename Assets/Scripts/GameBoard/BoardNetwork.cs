@@ -7,20 +7,19 @@ using Messages;
 public class BoardNetwork : MonoBehaviour
 {
     public BoardTile[] tiles;
-    private string nodeDataFileName = "board-message.json";
+    public string[] cityNames;
+    private string boardDataFilename = "board-message.json";
+    private string cityFilename = "cities.json";
     string filePath;
     private void Awake()
     {
+        MakeCityNameList();
         EventManager.StartListening(EventName.System.NetworkUpdateReceived(), LoadNodeData);
-        filePath = Path.Combine(Application.streamingAssetsPath, nodeDataFileName);
+        filePath = Path.Combine(Application.streamingAssetsPath, boardDataFilename);
         Debug.Log("Start, Loading mockup json");
         LoadNodeData(GameMessage.Write());
     }
-    void Update(){
-        if (Input.GetKeyDown(KeyCode.L)){
-            EventManager.TriggerEvent(EventName.System.NetworkUpdateReceived(), GameMessage.Write());
-        }
-    }
+
     private void LoadNodeData(GameMessage msg)
     {
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
@@ -31,25 +30,37 @@ public class BoardNetwork : MonoBehaviour
             BoardTileDataSerializable loadedData = JsonUtility.FromJson<BoardTileDataSerializable>(dataAsJson);
 
             tiles = loadedData.Export();
+            AssignRandomName();
         }
         else
         {
             Debug.Log(filePath);
             Debug.LogError("Cannot load game data! - no file found");
         }
-
-        if (File.Exists(filePath))
+    } 
+    void MakeCityNameList(){
+        string cityFilePath = Path.Combine(Application.streamingAssetsPath, cityFilename);
+        if (File.Exists(cityFilePath))
         {
-            string dataAsJson = File.ReadAllText(filePath);
-            Message.ParseMessage(dataAsJson,
-            (State state) => {
-                Debug.Log("Getting state");
-            }, (Tile[] tiles) => {
-                Debug.Log("Getting tiles");
-                Debug.Log(tiles.Length);
-            });
+            string dataAsJson = File.ReadAllText(cityFilePath);
+            //Debug.Log("json: " + dataAsJson);
+            //CityDataSerializable loadedData = JsonUtility.FromJson<CityDataSerializable>(dataAsJson);
+            dataAsJson = JsonHelper.fixJson(dataAsJson);
+            CityData[] loadedData = JsonHelper.FromJson<CityData>(dataAsJson);
+            cityNames = CityDataSerializable.Export(loadedData);
+        }
+        else
+        {
+            Debug.Log(cityFilePath);
+            Debug.LogError("Cannot load game data! - no file found");
         }
     }
-
-
+    void AssignRandomName(){
+        int nameCount = cityNames.Length;
+        foreach(BoardTile tile in tiles){
+            int index = Random.Range(0, nameCount);
+            tile.boardName = cityNames[index];
+            Debug.Log("new name: "+tile.boardName);
+        }
+    }
 }
