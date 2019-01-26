@@ -995,7 +995,7 @@ MonoBehaviour:
   tiles: []
   tilePrefab: {fileID: 3203249421384702555, guid: 8ba7256b7eaa32a4682ffd5b188a314a,
     type: 3}
-  rangeForward: 5
+  rangeForward: 30
 --- !u!114 &1996239203
 MonoBehaviour:
   m_ObjectHideFlags: 0

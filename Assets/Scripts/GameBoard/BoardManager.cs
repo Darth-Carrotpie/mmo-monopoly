@@ -6,7 +6,7 @@ public class BoardManager : MonoBehaviour
 {
     public List<BoardTile> tiles = new List<BoardTile>();
     public GameObject tilePrefab;
-    public int rangeForward = 10;
+    public int rangeForward = 30;
     BoardNetwork boardNetwork;
     PlayerNetwork playerNetwork;
     void Start()
@@ -31,7 +31,7 @@ public class BoardManager : MonoBehaviour
         int lastIndex = GetLastIndex();
         int lastAddress = GetLastAdress();
             Debug.Log(lastAddress);
-        for (int i = 0; i < rangeForward; i++){
+        for (int i = 0; i < rangeForward-lastIndex; i++){
             GameObject newTile = Instantiate(tilePrefab, transform);
             BoardTile bt = newTile.GetComponent<BoardTile>();
             //Debug.Log(bt.type);
