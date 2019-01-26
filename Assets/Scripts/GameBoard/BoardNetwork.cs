@@ -7,32 +7,30 @@ public class BoardNetwork : MonoBehaviour
 {
     public BoardTile[] tiles;
     private string nodeDataFileName = "board-message.json";
-    public GameObject nodePrefab;
-    public Transform spawnLocation;
     string filePath;
     private void Awake()
     {
-        //EventManager.StartListening(EventName.Input.Gem.Save(), SaveNodeData);
+        EventManager.StartListening(EventName.System.NetworkUpdateReceived(), LoadNodeData);
     }
     void Start()
     {
         filePath = Path.Combine(Application.streamingAssetsPath, nodeDataFileName);
-
-        LoadNodeData();
+        Debug.Log("Start");
+        //LoadNodeData();
     }
     void Update(){
         if (Input.GetKeyDown(KeyCode.L)){
             EventManager.TriggerEvent(EventName.System.NetworkUpdateReceived(), GameMessage.Write());
         }
     }
-    private void LoadNodeData()
+    private void LoadNodeData(GameMessage msg)
     {
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
 
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
-            //Debug.Log("json: " + dataAsJson);
+            Debug.Log("json: " + dataAsJson);
             BoardTileDataSerializable loadedData = JsonUtility.FromJson<BoardTileDataSerializable>(dataAsJson);
 
             tiles = loadedData.Export();
