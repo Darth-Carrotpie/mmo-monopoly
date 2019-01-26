@@ -9,6 +9,9 @@ public class BoardTile : MonoBehaviour
     public BoardTileType typeId;
     public BoardTileProperties properties;
 
+    public TextMesh nameMesh;
+    public TextMesh priceMesh;
+
     public BoardTile(BoardTileData n, int index){
         //Debug.Log(index);
         address = index;
