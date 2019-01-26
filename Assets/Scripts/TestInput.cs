@@ -5,6 +5,8 @@ using UnityEngine;
 public class TestInput : MonoBehaviour
 {
     public int spawnCount = 20;
+    public int position;
+    int step = 5;
 
     void Update()
     {
@@ -14,6 +16,9 @@ public class TestInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B)){
             EventManager.TriggerEvent(EventName.System.UpdateBoard(), GameMessage.Write());
         }
-
+        if (Input.GetKeyDown(KeyCode.KeypadPlus)){
+            position+=step;
+            EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithPosition(position).WithID(0));
+        }
     }
 }

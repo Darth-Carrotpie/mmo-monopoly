@@ -11,10 +11,10 @@ public class EventName
         public static string UpdDistance() { return "UpdDistance"; }
         public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance() }; }
     }
-    public class Editor
+    public class Player
     {
-        public static string Redraw() { return "Redraw"; }
-        public static List<string> Get() { return new List<string> { Redraw() }; }
+        public static string NewPosition() { return "NewPosition"; }
+        public static List<string> Get() { return new List<string> { NewPosition() }; }
     }
     public class Input
     {
@@ -56,7 +56,7 @@ public class EventName
     public List<string> Get()
     {
         return new List<string> { }.Concat(UI.Get())
-                                    .Concat(Editor.Get())
+                                    .Concat(Player.Get())
                                     .Concat(Input.Get())
                                     .Concat(System.Get())
                                     .Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();

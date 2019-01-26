@@ -4,19 +4,20 @@ using UnityEngine;
 [System.Serializable]
 public class BoardTileDataSerializable
 {
-    public List<BoardTileData> nodes = new List<BoardTileData>();
+    public List<BoardTileData> board = new List<BoardTileData>();
     public void Import(BoardTile[] nArray)
     {
         foreach (BoardTile n in nArray)
         {
-            nodes.Add(new BoardTileData(n));
+            board.Add(new BoardTileData(n));
             Debug.Log(n.properties.color);
         }
     }
     public BoardTile[] Export()
     {
+        Debug.Log(board[0]);
         List<BoardTile> ns = new List<BoardTile>();
-        foreach (BoardTileData n in nodes)
+        foreach (BoardTileData n in board)
         {
             ns.Add(new BoardTile(n));
         }

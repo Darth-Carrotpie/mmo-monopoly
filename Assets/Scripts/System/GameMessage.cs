@@ -33,4 +33,16 @@ public class GameMessage
         count = value;
         return this;
     }
+    public int position;
+    public GameMessage WithPosition(int value)
+    {
+        position = value;
+        return this;
+    }
+    public int id;
+    public GameMessage WithID(int value)
+    {
+        id = value;
+        return this;
+    }
 }
