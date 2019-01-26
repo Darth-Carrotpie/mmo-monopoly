@@ -1,15 +1,6 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 
-// var rooms = {};
-// function roomList(){
-//     var roomList = {};
-//     for (var roomName in rooms) {
-//         roomList[roomName] = rooms[roomName].connections.length;
-//     }
-//     return roomList;
-// }
-
 const connections = [];
 
 var server = http.createServer(function(request, response) {
@@ -40,30 +31,13 @@ function originIsAllowed(origin) {
 wsServer.on('error', function(evt) { console.error("Received error", evt) });
 
 wsServer.on('request', function(request) {
-    console.log("Connecting " +  request.remoteAddress);
+    console.log("Connecting");
 
     if (!originIsAllowed(request.origin)) {
       request.reject();
       console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
       return;
     }
-
-    // console.log(request);
-    // var roomName = request.httpRequest.url.substring(1);
-    // var newRoom = false;
-
-    // if (rooms[roomName] == null) {
-    //     var room = {};
-    //     room.connections = [];
-    //     newRoom = true;
-    //     rooms[roomName] = room;
-    // } else {
-    //     if (rooms[roomName].connections.length >= 2) {
-    //         request.reject();
-    //         console.log((new Date()) + ' Connection to ' + roomName + ' rejected. Room is full.');
-    //         return;
-    //     }
-    // }
 
     var connection = {};
     try{
@@ -76,7 +50,7 @@ wsServer.on('request', function(request) {
     console.log((new Date()) + ' Connection accepted.');
 
     connections.push(connection);
-    // rooms[roomName].connections.push(connection);
+    console.log('Connections: ' + connections.length);
 
     connection.on('message', function(message) {
         const isUtf = message.type === 'utf8';
