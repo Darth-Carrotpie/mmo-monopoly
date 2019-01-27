@@ -94,7 +94,8 @@ public class MessageTester : MonoBehaviour {
             " Roll: " + MessageTester.ArrayString(state.me.roll) +
             " Houses: " + MessageTester.ArrayString(state.me.houses) +
             " Hotels: " + MessageTester.ArrayString(state.me.hotels) +
-            " PossibleActions: " + state.me.possibleActions.Length
+            " PossibleActions: " + state.me.possibleActions.Length +
+            " Transactions: " + state.me.transactions.Length
         );
     }
 

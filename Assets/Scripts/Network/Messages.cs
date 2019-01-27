@@ -61,13 +61,6 @@ public class IntentMessage : Message {
 }
 
 [System.Serializable]
-public class PossibleAction {
-    public string type;
-    public Action id;
-    public int cost;
-}
-
-[System.Serializable]
 public class Player {
     public int id;
     public int position;
@@ -78,8 +71,40 @@ public class Player {
 }
 
 [System.Serializable]
+public class PossibleAction {
+    public string type;
+    public Action id;
+    public int cost;
+}
+
+public enum TransactionType {
+    RollDouble = 0,
+    PassGo = 1,
+    PayRent = 2,
+    ReceiveRent = 3,
+    PayTax = 4,
+    PayBuild = 5,
+}
+
+[System.Serializable]
+public class TransactionProperties {
+    public int gain; // RollDouble, PassGo, ReceiveRent
+    public int loss; // PayRent, PayTax, PayBuild
+    public int position; // All
+    public int playerId; // ReceiveRent
+}
+
+[System.Serializable]
+public class Transaction {
+    public string type;
+    public TransactionType typeId;
+    public TransactionProperties properties;
+}
+
+[System.Serializable]
 public class MyPlayer : Player {
     public PossibleAction[] possibleActions;
+    public Transaction[] transactions;
 }
 
 [System.Serializable]
@@ -114,7 +139,6 @@ public class Tile {
     public TileProperties properties;
     public TileType typeId;
 }
-
 
 [System.Serializable]
 public class BoardMessage : Message {
