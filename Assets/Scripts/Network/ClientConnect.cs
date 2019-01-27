@@ -30,6 +30,7 @@ public class ClientConnect : MonoBehaviour
     void OnStateReceived(Messages.State state){
         EventManager.TriggerEvent(EventName.Player.SetMainPlayer(), GameMessage.Write().WithID(state.me.id).WithPosition(state.me.position).WithRoll(state.me.roll));
         EventManager.TriggerEvent(EventName.Player.PossibleAction(), GameMessage.Write().WithPossibleAction(state.me.possibleActions));
+        EventManager.TriggerEvent(EventName.UI.UpdTransaction(), GameMessage.Write().WithTransaction(state.me.transactions));
 
 
         //distribute new positions for players:
@@ -46,6 +47,7 @@ public class ClientConnect : MonoBehaviour
         }   */  
 
         EventManager.TriggerEvent(EventName.UI.UpdWealth(), GameMessage.Write().WithCount(state.me.cash));
+        EventManager.TriggerEvent(EventName.UI.UpdTransaction(), GameMessage.Write().WithTransaction(state.me.transactions));
 
         //end of all message shoots
         EventManager.TriggerEvent(EventName.System.Turn(), GameMessage.Write().WithCount(state.turnCount).WithRoll(state.me.roll));

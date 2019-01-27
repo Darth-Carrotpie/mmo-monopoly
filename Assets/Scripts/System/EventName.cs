@@ -9,15 +9,15 @@ public class EventName
         public static string UpdLeaderboard() { return "UpdateTargetMarks"; }
         public static string UpdWealth() { return "UpdWealth"; }
         public static string UpdDistance() { return "UpdDistance"; }
-        public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance() }; }
+        public static string UpdTransaction() { return "UpdTransaction"; }
+        public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance(), UpdTransaction() }; }
     }
     public class Player
     {
         public static string NewPosition() { return "NewPosition"; }
         public static string SetMainPlayer() { return "SetMainPlayer"; }
         public static string PossibleAction() { return "PossibleAction"; }
-        public static string Transaction() { return "Transaction"; }
-        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction(), Transaction() }; }
+        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction() }; }
     }
     public class Input
     {
