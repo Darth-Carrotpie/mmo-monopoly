@@ -28,6 +28,7 @@ public class ClientConnect : MonoBehaviour
     }
 
     void OnStateReceived(Messages.State state){
+        Debug.Log("RECEIVING STATE");
         EventManager.TriggerEvent(EventName.Player.SetMainPlayer(), GameMessage.Write().WithID(state.me.id).WithPosition(state.me.position).WithRoll(state.me.roll));
         EventManager.TriggerEvent(EventName.Player.PossibleAction(), GameMessage.Write().WithPossibleAction(state.me.possibleActions));
 
@@ -42,7 +43,7 @@ public class ClientConnect : MonoBehaviour
             if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
                 EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
-        }   */  
+        }   */
 
         EventManager.TriggerEvent(EventName.UI.UpdWealth(), GameMessage.Write().WithCount(state.me.cash));
 
@@ -54,6 +55,7 @@ public class ClientConnect : MonoBehaviour
 
 
     void OnBoardReceived(Messages.Tile[] tiles){
+        Debug.Log("RECEIVING BOARD");
         //Debug.Log("tiles"+tiles.Length);
         BoardTile[] boardTiles = Messages.BoardMessage.ToBoard(tiles);
         //Debug.Log("tiles"+boardTiles.Length);
