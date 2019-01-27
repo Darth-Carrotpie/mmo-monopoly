@@ -14,7 +14,7 @@ public class BoardManager : MonoBehaviour
         boardNetwork = FindObjectOfType<BoardNetwork>();
         playerNetwork = FindObjectOfType<PlayerNetwork>();
         EventManager.StartListening(EventName.System.UpdateBoard(), UpdateBoard);
-        UpdateBoard(GameMessage.Write());
+        //UpdateBoard(GameMessage.Write());
     }
 
     public void UpdateBoard(GameMessage msg){

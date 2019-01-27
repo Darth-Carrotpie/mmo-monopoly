@@ -29,6 +29,7 @@ public class ClientConnect : MonoBehaviour
 
     void OnStateReceived(Messages.State state){
         EventManager.TriggerEvent(EventName.Player.SetMainPlayer(), GameMessage.Write().WithID(state.me.id).WithPosition(state.me.position).WithRoll(state.me.roll));
+        EventManager.TriggerEvent(EventName.Player.PossibleAction(), GameMessage.Write().WithPossibleAction(state.me.possibleActions));
 
 
         //distribute new positions for players:
@@ -38,11 +39,11 @@ public class ClientConnect : MonoBehaviour
             }
         }
         //distribute house and hotel locations:
-        /*/for(int i=0; i < state.players.Length; i++){
+        /* for(int i=0; i < state.players.Length; i++){
             if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
                 EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
-        }     */
+        }   */  
 
         EventManager.TriggerEvent(EventName.UI.UpdWealth(), GameMessage.Write().WithCount(state.me.cash));
 

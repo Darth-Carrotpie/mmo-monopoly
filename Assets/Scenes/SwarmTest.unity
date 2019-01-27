@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 1920019865}
   - component: {fileID: 1920019866}
   - component: {fileID: 1920019867}
+  - component: {fileID: 1920019870}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -948,6 +949,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCount: 20
   position: 0
+--- !u!114 &1920019870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920019863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880a5fe0d9f17794a83ac04bc4b2256a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996239200
 GameObject:
   m_ObjectHideFlags: 0

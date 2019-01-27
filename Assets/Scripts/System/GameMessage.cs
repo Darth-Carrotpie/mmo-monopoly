@@ -58,4 +58,11 @@ public class GameMessage
         roll = value;
         return this;
     } 
+
+    public Messages.PossibleAction[] possibleAction;
+    public GameMessage WithPossibleAction(Messages.PossibleAction[] value)
+    {
+        possibleAction = value;
+        return this;
+    } 
 }

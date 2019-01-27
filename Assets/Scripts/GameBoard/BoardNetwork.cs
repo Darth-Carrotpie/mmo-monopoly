@@ -16,7 +16,7 @@ public class BoardNetwork : MonoBehaviour
         MakeCityNameList();
         EventManager.StartListening(EventName.System.TilesDownloaded(), OnTilesDownloaded);
         filePath = Path.Combine(Application.streamingAssetsPath, boardDataFilename);
-        Debug.Log("Start, Loading mockup json");
+        //Debug.Log("Start, Loading mockup json");
         //OnTilesDownloaded(GameMessage.Write());
     }
     void OnTilesDownloaded(GameMessage msg){
