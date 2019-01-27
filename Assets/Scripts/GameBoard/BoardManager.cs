@@ -30,7 +30,7 @@ public class BoardManager : MonoBehaviour
             }
         }
         //create new tiles
-        //Debug.Log("creating");
+        Debug.Log("creating");
         int lastIndex = GetLastIndex();
         int lastAddress = GetLastAdress();
         for (int i = 0; i < rangeForward - lastAddress +  playersManager.mainPlayer.tileAddress; i++){
@@ -41,7 +41,7 @@ public class BoardManager : MonoBehaviour
             tiles.Add(bt);
         }
     }
-    int GetLastAdress(){
+    public int GetLastAdress(){
         int address = 0;
         for (int i = 0; i < tiles.Count; i ++){
             int z = (int)tiles[i].address;

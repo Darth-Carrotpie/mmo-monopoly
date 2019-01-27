@@ -55,8 +55,10 @@ public class EventName
         public static string MoveBoard() { return "MoveBoard"; }
         public static string TilesDownloaded() { return "TilesDownloaded"; }
         public static string SpawnPlayers() { return "SpawnPlayers"; }
+        public static string SpawnHouses() { return "SpawnHouses"; }
+        public static string SpawnHotels() { return "SpawnHotels"; }
         public static string Turn() { return "Turn"; }
-        public static List<string> Get() { return new List<string> { TilesDownloaded(), UpdateBoard(),MoveBoard(), SpawnPlayers(), Turn() }; }
+        public static List<string> Get() { return new List<string> { TilesDownloaded(), UpdateBoard(),MoveBoard(), SpawnPlayers(),SpawnHouses(), SpawnHotels(),Turn() }; }
     }
 
     public List<string> Get()

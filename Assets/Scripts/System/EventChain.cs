@@ -6,7 +6,6 @@ public class EventChain : MonoBehaviour {
     //public Animator stateMachine;
     void Awake () {
         EventManager.Attach(EventName.Player.PlayerState(), NewPosition);
-        EventManager.Attach(EventName.Player.NewPosition(), UpdateBoard);
         EventManager.Attach(EventName.System.TilesDownloaded(), UpdateBoard);
         EventManager.Attach(EventName.System.UpdateBoard(), SetMainPlSceneRef);
     }

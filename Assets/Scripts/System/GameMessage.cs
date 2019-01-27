@@ -72,4 +72,10 @@ public class GameMessage
         transaction = value;
         return this;
     }
+    public BuildingData[] buildings;
+    public GameMessage WithBuildings(BuildingData[] value)
+    {
+        buildings = value;
+        return this;
+    }
 }

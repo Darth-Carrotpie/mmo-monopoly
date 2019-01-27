@@ -2,7 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using Messages;
-
+/*
 static class Tester {
 
     [MenuItem("Test/Parse Intent Message")]
@@ -76,7 +76,7 @@ static class Tester {
         }
     }
 }
-
+*/
 public class MessageTester : MonoBehaviour {
     private IMessenger messenger;
 

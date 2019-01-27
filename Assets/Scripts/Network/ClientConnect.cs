@@ -9,7 +9,7 @@ public class ClientConnect : MonoBehaviour
 
     void Start()
     {
-        messenger = new SocketMessenger(this);
+        messenger = new DummyMessenger(this);
         messenger.Connect(OnStateReceived, OnBoardReceived);
         EventManager.StartListening(EventName.Input.BuildHouse(), BuildHouse);
         EventManager.StartListening(EventName.Input.BuildHotel(), BuildHotel);
@@ -40,11 +40,25 @@ public class ClientConnect : MonoBehaviour
             }
         }
         //distribute house and hotel locations:
-        /* for(int i=0; i < state.players.Length; i++){
-            if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
-                EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
+        List<BuildingData> houses = new List<BuildingData>();
+        for(int i=0; i < state.players.Length; i++){
+            for (int j=0; j < state.players[i].houses.Length ; j++){
+                if (state.me.position - 30 < state.players[i].houses[j] && state.me.position + 60 > state.players[i].houses[j])
+                    houses.Add(new BuildingData(state.players[i].houses[j], state.players[i].id));
             }
-        }   */
+        }
+        EventManager.TriggerEvent(EventName.System.SpawnHouses(), GameMessage.Write().WithBuildings(houses.ToArray()));
+        List<BuildingData> hotels = new List<BuildingData>();
+        for(int i=0; i < state.players.Length; i++){
+            for (int j=0; j < state.players[i].hotels.Length ; j++){
+                if (state.me.position - 30 < state.players[i].hotels[j] && state.me.position + 60 > state.players[i].hotels[j])
+                    hotels.Add(new BuildingData(state.players[i].hotels[j], state.players[i].id));
+            }
+        }
+        EventManager.TriggerEvent(EventName.System.SpawnHotels(), GameMessage.Write().WithBuildings(hotels.ToArray()));
+
+        EventManager.TriggerEvent(EventName.System.UpdateBoard(), GameMessage.Write());
+
 
         EventManager.TriggerEvent(EventName.UI.UpdWealth(), GameMessage.Write().WithCount(state.me.cash));
         EventManager.TriggerEvent(EventName.UI.UpdTransaction(), GameMessage.Write().WithTransaction(state.me.transactions));
