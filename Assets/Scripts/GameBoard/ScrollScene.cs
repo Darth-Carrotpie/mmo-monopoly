@@ -9,7 +9,7 @@ public class ScrollScene : MonoBehaviour
     float delay = 2f;
     float counter;
     public bool trigger;
-    void Start()
+    void Awake()
     {
         EventManager.StartListening(EventName.Player.NewPosition(), OnMoveBoard);
     }

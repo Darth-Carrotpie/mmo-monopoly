@@ -14,11 +14,13 @@ public class SceneMovable : MonoBehaviour
 
     bool trigger;
 
-    void Start()
+    Player pl;
+    BoardTile bt;
+    void Awake()
     {
-        mainPlayer = FindObjectOfType<PlayersManager>().mainPlayer;
         EventManager.StartListening(EventName.System.MoveBoard(), TriggerSceneMovement);
         EventManager.StartListening(EventName.Player.NewPosition(), NewPostionTrigger);
+        EventManager.StartListening(EventName.Player.SetMainPlSceneRef(), SetMainPlSceneRef);
     }
     void NewPostionTrigger(GameMessage msg){
         trigger = false;
@@ -28,15 +30,21 @@ public class SceneMovable : MonoBehaviour
         timeCounter = 0;
         //Debug.Log("moveScene");
         currentPos = transform.position.z;
-        Player pl = GetComponent<Player>();
         if (pl)
             newPos = pl.tileAddress - mainPlayer.tileAddress;
-        BoardTile bt = GetComponent<BoardTile>();
-        if (bt && mainPlayer)
+        if (bt && mainPlayer){
             newPos = bt.address - mainPlayer.tileAddress;
-        totalDif = - mainPlayer.tileAddress;
+            totalDif = - mainPlayer.tileAddress;
+        }
     }
-
+    public void SetMainPlSceneRef(GameMessage msg){
+        SetUp();
+    }
+    public void SetUp(){
+        mainPlayer = FindObjectOfType<PlayersManager>().mainPlayer;
+        pl = GetComponent<Player>();
+        bt = GetComponent<BoardTile>();
+    }
     void Update(){
         if (newPos < currentPos && trigger){
             timeCounter+=Time.deltaTime;

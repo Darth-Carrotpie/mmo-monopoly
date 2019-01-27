@@ -31,10 +31,9 @@ public class ClientConnect : MonoBehaviour
         EventManager.TriggerEvent(EventName.Player.SetMainPlayer(), GameMessage.Write().WithID(state.me.id).WithPosition(state.me.position).WithRoll(state.me.roll));
         EventManager.TriggerEvent(EventName.Player.PossibleAction(), GameMessage.Write().WithPossibleAction(state.me.possibleActions));
 
-
         //distribute new positions for players:
         for(int i=0; i < state.players.Length; i++){
-            if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
+            if(state.me.position - 30 > state.players[i].position || state.me.position + 60 < state.players[i].position){
                 EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
         }

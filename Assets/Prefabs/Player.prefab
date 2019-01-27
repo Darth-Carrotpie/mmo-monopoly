@@ -75,5 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44f5465a96ccf94589c39690fda6cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCounter: 0
-  pseudoDelay: 0
+  currentPos: 0
+  actualNewPos: 0
+  totalDif: 0
+  mainPlayer: {fileID: 0}

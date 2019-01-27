@@ -15,8 +15,9 @@ public class EventName
     {
         public static string NewPosition() { return "NewPosition"; }
         public static string SetMainPlayer() { return "SetMainPlayer"; }
+        public static string SetMainPlSceneRef() { return "SetMainPlSceneRef"; }
         public static string PossibleAction() { return "PossibleAction"; }
-        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction() }; }
+        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), SetMainPlSceneRef(), PossibleAction() }; }
     }
     public class Input
     {
