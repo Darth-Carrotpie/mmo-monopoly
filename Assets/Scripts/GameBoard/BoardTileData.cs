@@ -6,7 +6,7 @@ public class BoardTileData
 {
     public string boardName;
     public string type;
-    public BoardTileType typeId;
+    public Messages.TileType typeId;
     public Messages.TileProperties properties;
 
     public BoardTileData(BoardTile n)

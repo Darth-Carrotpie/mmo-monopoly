@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 namespace Messages
 {
 
@@ -109,9 +109,18 @@ public class Tile {
     public TileType typeId;
 }
 
+
 [System.Serializable]
 public class BoardMessage : Message {
     public Tile[] board;
+    public static BoardTile[] ToBoard(Tile[] tiles){
+        List<BoardTile> boardTiles = new List<BoardTile>();
+        for (int i=0; i<tiles.Length; i++){
+            BoardTile bTile = new BoardTile(tiles[i], i);
+            boardTiles.Add(bTile);
+        }
+        return boardTiles.ToArray();
+    }
 }
 
 }

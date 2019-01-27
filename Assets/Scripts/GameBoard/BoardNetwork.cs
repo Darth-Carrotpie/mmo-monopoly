@@ -14,14 +14,23 @@ public class BoardNetwork : MonoBehaviour
     private void Awake()
     {
         MakeCityNameList();
-        EventManager.StartListening(EventName.System.NetworkUpdateReceived(), LoadNodeData);
+        EventManager.StartListening(EventName.System.TilesDownloaded(), OnTilesDownloaded);
         filePath = Path.Combine(Application.streamingAssetsPath, boardDataFilename);
         Debug.Log("Start, Loading mockup json");
-        LoadNodeData(GameMessage.Write());
+        //OnTilesDownloaded(GameMessage.Write());
     }
-
-    private void LoadNodeData(GameMessage msg)
+    void OnTilesDownloaded(GameMessage msg){
+        if (msg.boardTiles.Length > 0)
+            LoadDownloadedTiles(msg);
+        else
+            LoadLocalData(msg);
+    }
+    void LoadDownloadedTiles(GameMessage msg){
+        Debug.Log("Loading board data received from server");
+    }
+    private void LoadLocalData(GameMessage msg)
     {
+        Debug.Log("Loading local board data");
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
         if (File.Exists(filePath))
         {

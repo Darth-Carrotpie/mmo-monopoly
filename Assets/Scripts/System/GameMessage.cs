@@ -45,4 +45,10 @@ public class GameMessage
         id = value;
         return this;
     }
+    public BoardTile[] boardTiles;
+    public GameMessage WithBoardTiles(BoardTile[] value)
+    {
+        boardTiles = value;
+        return this;
+    }
 }

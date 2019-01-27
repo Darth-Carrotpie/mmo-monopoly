@@ -47,10 +47,10 @@ public class EventName
     {
         public static string UpdateBoard() { return "UpdateBoard"; }
         public static string MoveBoard() { return "MoveBoard"; }
-        public static string NetworkUpdateReceived() { return "NetworkUpdateReceived"; }
+        public static string TilesDownloaded() { return "TilesDownloaded"; }
         public static string SpawnPlayers() { return "SpawnPlayers"; }
-        public static string LoadScene() { return "LoadScene"; }
-        public static List<string> Get() { return new List<string> { NetworkUpdateReceived(), UpdateBoard(),MoveBoard(), SpawnPlayers(), LoadScene() }; }
+        public static string Turn() { return "Turn"; }
+        public static List<string> Get() { return new List<string> { TilesDownloaded(), UpdateBoard(),MoveBoard(), SpawnPlayers(), Turn() }; }
     }
 
     public List<string> Get()

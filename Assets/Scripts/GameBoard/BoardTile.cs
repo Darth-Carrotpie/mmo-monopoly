@@ -7,7 +7,7 @@ public class BoardTile : MonoBehaviour
     public string boardName;
     public int address;
     public string type;
-    public BoardTileType typeId;
+    public Messages.TileType typeId;
     public int cost;
     public string color;
 
@@ -18,6 +18,15 @@ public class BoardTile : MonoBehaviour
     public BoardTile(BoardTileData n, int index){
         //Debug.Log(index);
         boardName = n.boardName;
+        address = index;
+        type = n.type;
+        typeId = n.typeId;
+        cost = n.properties.cost;
+        color = n.properties.color;
+    }
+    public BoardTile(Messages.Tile n, int index){
+        //Debug.Log(index);
+        boardName = "";
         address = index;
         type = n.type;
         typeId = n.typeId;
@@ -36,10 +45,4 @@ public class BoardTile : MonoBehaviour
         priceMesh.SetText("$"+cost);
         coloredHeader.material.color = FindObjectOfType<TileColorGenerator>().GetColorValue(color);
     }
-}
-
-public enum BoardTileType {
-    Street,
-    Empty,
-    Go
 }
