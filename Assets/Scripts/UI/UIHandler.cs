@@ -7,8 +7,7 @@ public class UIHandler : MonoBehaviour
 {
     public Text MoneyTotalCount;
     public Text MoneyBalanceCount;
-    public Text MoneyGainCount;
-    public Text MoneyLossCount;
+    public Text MoneyTransactionCount;
     public Text TurnCount;
     public Text ScoreCount;
     public Text RollCount;
@@ -20,11 +19,13 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         EventManager.StartListening(EventName.UI.UpdWealth(), UpdateMoneyTotal);
-        //EventManager.StartListening(EventName.UI.UpdWealth(), UpdateMoneyBalance);
         EventManager.StartListening(EventName.UI.UpdTransaction(), UpdateTransaction);
+
         EventManager.StartListening(EventName.System.Turn(), UpdateTurnRollCount);
         EventManager.StartListening(EventName.Player.NewPosition(), UpdateScoreCount);
         EventManager.StartListening(EventName.UI.UpdLeaderboard(), UpdateLeaderboard);
+
+        EventManager.StartListening(EventName.Player.PossibleAction(), UpdateButtons);
     }
 
     void UpdateMoneyTotal(GameMessage msg)
@@ -32,13 +33,13 @@ public class UIHandler : MonoBehaviour
         MoneyTotalCount.GetComponent<Text>().text = "Money $" + msg.count.ToString();
     }
 
-    void UpdateMoneyBalance(GameMessage msg)
-    {
-        MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + msg.count.ToString();
-    }
-
     void UpdateTransaction(GameMessage msg)
     {
+        moneyGainText = "";
+        moneyLossText = "";
+
+        int gainSum = 0;
+        int lossSum = 0;
         /*
             RollDouble = 0,
             PassGo = 1,
@@ -54,39 +55,42 @@ public class UIHandler : MonoBehaviour
             string gain = transaction.properties.gain.ToString();
             string loss = transaction.properties.loss.ToString();
 
-            if (typeID == "0" && gain != "")
+            if (typeID == "RollDouble" && gain != "")
             {
-                moneyGainText += "//n+$" + gain + ". You rolled double!";
+                moneyGainText += "\n +$" + gain + ". You rolled double!";
             }
-            else if (typeID == "1" && gain != "")
+            else if (typeID == "PassGo" && gain != "")
             {
-                moneyGainText += "//n+$" + gain + ". You passed GO!";
+                moneyGainText += "\n +$" + gain + ". You passed GO!";
             }
-            else if (typeID == "3" && gain != "")
+            else if (typeID == "ReceiveRent" && gain != "")
             {
-                moneyGainText += "//n+$" + gain + ". You received rent!";
+                moneyGainText += "\n +$" + gain + ". You received rent!";
             }
-            else if (typeID == "2" && loss != "")
+            else if (typeID == "PayRent" && loss != "")
             {
-                moneyLossText += "//n-$" + loss + ". You paid rent.";
+                moneyLossText += "\n -$" + loss + ". You paid rent.";
             }
-            else if (typeID == "4" && loss != "")
+            else if (typeID == "PayTax" && loss != "")
             {
-                moneyLossText += "//n-$" + loss + ". You paid taxes.";
+                moneyLossText += "\n -$" + loss + ". You paid taxes.";
             }
-            else if (typeID == "5" && loss != "")
+            else if (typeID == "PayBuild" && loss != "")
             {
-                moneyLossText += "//n-$" + loss + ". You built property.";
+                moneyLossText += "\n -$" + loss + ". You built property.";
             }
+
+            gainSum += int.Parse(gain);
+            lossSum += int.Parse(loss);
         }
 
-        FadeIn(MoneyGainCount.GetComponent<Graphic>()); 
+        MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + (gainSum + lossSum).ToString();
 
-        MoneyGainCount.GetComponent<Text>().text = moneyGainText;
-        MoneyLossCount.GetComponent<Text>().text = moneyLossText;
+        FadeIn(MoneyTransactionCount.GetComponent<Graphic>()); 
 
-        //StartCoroutine(Waiter());
-        FadeOut(MoneyGainCount.GetComponent<Graphic>());
+        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n \n" + moneyLossText;
+
+        FadeOut(MoneyTransactionCount.GetComponent<Graphic>());
     }
 
     void UpdateScoreCount(GameMessage msg)
@@ -109,10 +113,10 @@ public class UIHandler : MonoBehaviour
         LeaderboardText.GetComponent<Text>().text = msg.position.ToString();
     }
 
-    /*IEnumerator Waiter()
+    void UpdateButtons(GameMessage msg)
     {
-        yield return new WaitForSeconds(2);
-    }*/
+        //msg.possibleAction = 
+    }
 
     void FadeIn(Graphic g)
     {
@@ -123,6 +127,6 @@ public class UIHandler : MonoBehaviour
     void FadeOut(Graphic g)
     {
         g.GetComponent<CanvasRenderer>().SetAlpha(1f);
-        g.CrossFadeAlpha(0f, 3f, false);
+        g.CrossFadeAlpha(0f, 4f, false);
     }
 }
