@@ -5,12 +5,8 @@ using UnityEngine.UI;
 
 public class BuyHotelHandler : MonoBehaviour
 {
-    string intent;
-
     public void OnClick()
     {
-        string intent = "buy-hotel";
-
-        print(intent);
+        EventManager.TriggerEvent(EventName.Input.BuildHotel(), GameMessage.Write());
     }
 }

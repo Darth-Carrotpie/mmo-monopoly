@@ -16,7 +16,8 @@ public class EventName
         public static string NewPosition() { return "NewPosition"; }
         public static string SetMainPlayer() { return "SetMainPlayer"; }
         public static string PossibleAction() { return "PossibleAction"; }
-        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction() }; }
+        public static string Transaction() { return "Transaction"; }
+        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction(), Transaction() }; }
     }
     public class Input
     {

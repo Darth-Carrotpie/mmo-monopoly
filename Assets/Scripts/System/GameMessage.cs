@@ -64,5 +64,12 @@ public class GameMessage
     {
         possibleAction = value;
         return this;
-    } 
+    }
+
+    public Messages.Transaction[] transaction;
+    public GameMessage WithTransaction(Messages.Transaction[] value)
+    {
+        transaction = value;
+        return this;
+    }
 }
