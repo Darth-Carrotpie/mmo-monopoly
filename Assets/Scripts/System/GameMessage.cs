@@ -51,4 +51,11 @@ public class GameMessage
         boardTiles = value;
         return this;
     }
+
+    public int[] roll;
+    public GameMessage WithRoll(int[] value)
+    {
+        roll = value;
+        return this;
+    } 
 }
