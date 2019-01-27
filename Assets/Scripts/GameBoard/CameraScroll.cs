@@ -27,7 +27,7 @@ public class CameraScroll : MonoBehaviour
         trigger = true;
         timeCounter = 0;
         currentPos = transform.position.z;
-        newPos = mainPlayer.tileAddress - 1.81f;
+        newPos = mainPlayer.tileAddress -1.24f;
     }
     public void SetMainPlSceneRef(GameMessage msg){
         SetUp();
