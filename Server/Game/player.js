@@ -15,11 +15,13 @@ class Player {
         this.cash = Settings.initialMoney;
         this.intent = Player.Action.Nothing;
         this.roll = []; // Array for dice rolls
+        this.transactions = []; // Array of transactions
     }
 
     getState() {
         const state = { ...this };
         delete state.intent;
+        delete state.transactions;
         return state;
     }
 

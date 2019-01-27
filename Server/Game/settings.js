@@ -74,6 +74,33 @@ const Settings = {
             type: "buy-hotel",
         }
     },
+    // TRANSACTION
+    transactions: {
+        RollDouble: {
+            id: 0,
+            type: "roll-double",
+        },
+        PassGo: {
+            id: 1,
+            type: "pass-go",
+        },
+        PayRent: {
+            id: 2,
+            type: "pay-rent",
+        },
+        ReceiveRent: {
+            id: 3,
+            type: "receive-rent",
+        },
+        PayTax: {
+            id: 4,
+            type: "pay-tax",
+        },
+        PayBuild: {
+            id: 5,
+            type: "pay-build",
+        }
+    },
 }
 
 module.exports = Settings;

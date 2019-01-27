@@ -1,6 +1,7 @@
 const Settings = require("./settings");
 const Tile = require("./tile");
 const Player = require("./player");
+const Transaction = require("./transaction");
 
 const rollDice = (roll) => {
     for (let i = 0; i < Settings.diceCount; i++) {
@@ -8,10 +9,11 @@ const rollDice = (roll) => {
     }
 }
 
-const pay = (owners, money) => {
+const pay = (payer, owners, money) => {
     // Maybe record this, so server doesn't have to redo the logic?
     owners.forEach(owner => {
         owner.cash += money;
+        Transaction.ReceiveRent(payer, owner, money);
     });
 }
 
@@ -36,6 +38,7 @@ class Game {
         if (player) {
             state.me = player.getState();
             state.me.possibleActions = player.possibleActions(this.board);
+            state.me.transactions = player.transactions;
         }
 
         return state;
@@ -49,6 +52,10 @@ class Game {
     }
 
     advance() {
+        // RESET TRANSACTIONS
+        this.players.forEach(player => {
+            player.transactions.length = 0;
+        });
         // REMOVE LOSERS
         Game.removeLosers(this.players, this.board);
         // BUILD
@@ -122,13 +129,17 @@ class Game {
             }
 
             if (player.intent == Player.Action.BuyHouse) {
-                player.cash -= currentTile.properties.cost;
+                const cost = currentTile.properties.cost
+                player.cash -= cost;
                 player.houses.push(player.position);
+                Transaction.PayBuild(player, cost);
             }
 
             if (player.intent == Player.Action.BuyHotel) {
-                player.cash -= currentTile.properties.cost * Settings.hotelCostMultiplier;
+                const cost = currentTile.properties.cost * Settings.hotelCostMultiplier;
+                player.cash -= cost;
                 player.hotels.push(player.position);
+                Transaction.PayBuild(player, cost);
             }
         });
     }
@@ -144,15 +155,15 @@ class Game {
             for (let i = initialPosition + 1; i + 1 < Math.min(endPosition, board.length); i++) {
                 const tile = board[i];
                 if (tile.type == Tile.Type.Go) {
-                    // TODO record transaction
                     player.cash += Settings.goReward;
+                    Transaction.PassGo(player, i);
                 }
             }
 
             // RESOLVE DOUBLE
             if (player.roll[0] == player.roll[1]) {
-                // Maybe record this, so server doesn't have to redo the logic?
                 player.cash += Settings.doubleBonus;
+                Transaction.RollDouble(player, initialPosition);
             }
         });
     }
@@ -164,8 +175,8 @@ class Game {
             if (tile.type == Tile.Type.Street) {
                 Game.payRent(players, player, tile.properties.cost);
             } else if (tile.type == Tile.Type.Pay) {
-                // TODO record transaction
                 player.cash -= tile.properties.cost;
+                Transaction.PayTax(player, tile.properties.cost);
             }
         });
     }
@@ -198,16 +209,16 @@ class Game {
         const hotelOwners = Game.hotelOwners(players, player.position);
 
         if (houseOwners.length > 0) {
-            // pays a fixed price
             player.cash -= cost;
+            Transaction.PayRent(player, cost);
             const split = Math.floor(cost / houseOwners.length);
-            pay(houseOwners, split);
+            pay(player, houseOwners, split);
         }
 
         if (hotelOwners.length > 0) {
-            // pays for each hotel
             player.cash -= cost * hotelOwners.length;
-            pay(hotelOwners, cost);
+            Transaction.PayRent(player, cost * hotelOwners.length);
+            pay(player, hotelOwners, cost);
         }
     }
 }
