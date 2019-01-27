@@ -31,7 +31,7 @@ public class BoardManager : MonoBehaviour
         Debug.Log("creating");
         int lastIndex = GetLastIndex();
         int lastAddress = GetLastAdress();
-            Debug.Log(lastAddress);
+           // Debug.Log(lastAddress);
         for (int i = 0; i < rangeForward-lastIndex; i++){
             GameObject newTile = Instantiate(tilePrefab, transform);
             BoardTile bt = newTile.GetComponent<BoardTile>();

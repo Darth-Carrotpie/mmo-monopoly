@@ -16,7 +16,7 @@ public class SceneMovable : MonoBehaviour
 
     void Start()
     {
-        mainPlayer = FindObjectOfType<PlayerNetwork>().player;
+        mainPlayer = FindObjectOfType<PlayersManager>().mainPlayer;
         EventManager.StartListening(EventName.System.MoveBoard(), TriggerSceneMovement);
         EventManager.StartListening(EventName.Player.NewPosition(), NewPostionTrigger);
     }
@@ -32,7 +32,7 @@ public class SceneMovable : MonoBehaviour
         if (pl)
             newPos = pl.tileAddress - mainPlayer.tileAddress;
         BoardTile bt = GetComponent<BoardTile>();
-        if (bt)
+        if (bt && mainPlayer)
             newPos = bt.address - mainPlayer.tileAddress;
         totalDif = - mainPlayer.tileAddress;
     }

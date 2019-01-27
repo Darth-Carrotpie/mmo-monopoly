@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int tileAddress;
-    int id;
+    public int id;
 
     void Start()
     {

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerHop : MonoBehaviour
 {
-    int currentPos = 0;
+    public int currentPos = 0;
     int id;
     float timeToMove = 2f;
     float maxTimeToMove = 2f;
-    public float timeCounter = 0f;
+    float timeCounter = 0f;
     SceneMovable movable;
-    float actualNewPos;
+    public float actualNewPos;
     //public Player mainPlayer;
     float maxPeudoDelay = 0.5f;
-    public float pseudoDelay = 0f;
+    float pseudoDelay = 0f;
     bool trigger;
     float newPos;
     void Start()
