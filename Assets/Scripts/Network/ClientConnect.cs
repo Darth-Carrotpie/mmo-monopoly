@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ClientConnect : MonoBehaviour
 {
+    private IMessenger messenger;
+    int turnCount;
 
-    public IMessenger messenger;
     void Start()
     {
         messenger = new DummyMessenger(this);
@@ -16,14 +17,14 @@ public class ClientConnect : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     void BuildHouse(GameMessage msg){
-        //send build msg to server
+        messenger.SelectAction(Messages.Action.BuyHouse, this.turnCount);
     }
     void BuildHotel(GameMessage msg){
-        //send build msg to server
+        messenger.SelectAction(Messages.Action.BuyHotel, this.turnCount);
     }
 
     void OnStateReceived(Messages.State state){
@@ -47,6 +48,8 @@ public class ClientConnect : MonoBehaviour
 
         //end of all message shoots
         EventManager.TriggerEvent(EventName.System.Turn(), GameMessage.Write().WithCount(state.turnCount).WithRoll(state.me.roll));
+
+        turnCount = state.turnCount;
     }
 
 
