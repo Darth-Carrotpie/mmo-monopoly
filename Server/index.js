@@ -2,13 +2,14 @@ const WebSocketServer = require('websocket').server;
 const http = require('http');
 const Game = require('./Game/game')
 const Room = require('./room')
+const Config = require('./config')
 
 const game = new Game();
 const room = new Room(game);
 
 setInterval(() => {
     room.tick();
-}, 10000);
+}, Config.tickInterval);
 
 const server = http.createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
@@ -16,8 +17,8 @@ const server = http.createServer(function(request, response) {
     response.end();
 });
 
-server.listen(2048, function() {
-    console.log((new Date()) + ' Server is listening on port 2048');
+server.listen(Config.port, function() {
+    console.log((new Date()) + ' Server is listening on port ' + Config.port);
 });
 
 wsServer = new WebSocketServer({
@@ -42,7 +43,7 @@ wsServer.on('request', function(request) {
 
     let connection = {};
     try{
-        connection = request.accept('ggj-protocol', request.origin);
+        connection = request.accept(Config.protocol, request.origin);
     }
     catch(err){
         console.log((new Date()) + ' Connection accepting failed.');

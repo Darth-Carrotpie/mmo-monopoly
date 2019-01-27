@@ -10,6 +10,7 @@ public class TestInput : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space)){
             EventManager.TriggerEvent(EventName.System.SpawnPlayers(), GameMessage.Write().WithCount(spawnCount));
         }
@@ -23,5 +24,6 @@ public class TestInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L)){
             EventManager.TriggerEvent(EventName.System.NetworkUpdateReceived(), GameMessage.Write());
         }
+        */
     }
 }

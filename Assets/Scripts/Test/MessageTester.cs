@@ -81,7 +81,7 @@ public class MessageTester : MonoBehaviour {
     private IMessenger messenger;
 
     void Start() {
-        this.messenger = new DummyMessenger(this);
+        this.messenger = new SocketMessenger(this);
         this.messenger.Connect(this.OnStateReceived, this.OnBoardReceived);
     }
 
