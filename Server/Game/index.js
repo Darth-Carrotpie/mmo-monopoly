@@ -17,10 +17,12 @@ const randomItem = (array) => {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-const turns = 10;
+const turns = 20;
 for (let i = 0; i < turns; i++) {
-    game.addPlayer();
-    game.addPlayer();
+    if (i < 10) {
+        game.addPlayer();
+        game.addPlayer();
+    }
 
     console.log("##  GET STATE ##")
     const stateMessage = {

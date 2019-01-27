@@ -1,7 +1,10 @@
 const Settings = require("./settings");
 
 const tileTypes = Object.values(Settings.tileTypes);
-const totalChance = tileTypes.map((tc) => tc.chance).reduce((a, b) => a + b, 0);
+const totalChance = (place) => {
+    const chances = tileTypes.map((tc) => tc.chance + place * tc.chanceIncrease);
+    return chances.reduce((a, b) => a + b, 0);
+}
 
 const getTypeId = (type) => {
     return tileTypes.find((t) => t.type == type).id;
@@ -32,6 +35,14 @@ class Tile {
         return new Tile(Tile.Type.Street, { cost, color });
     }
 
+    static Go() {
+        return new Tile(Tile.Type.Go);
+    }
+
+    static Pay(cost) {
+        return new Tile(Tile.Type.Pay, { cost });
+    }
+
     static RandomColor() {
         return randomItem(Settings.tileColors);
     }
@@ -42,13 +53,13 @@ class Tile {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    static RandomType() {
-        let randomValue = Math.random() * totalChance;
+    static RandomType(place) {
+        let randomValue = Math.random() * totalChance(place);
 
         for (let i = 0; i < tileTypes.length; i++) {
             const tc = tileTypes[i];
 
-            randomValue -= tc.chance;
+            randomValue -= tc.chance + place * tc.chanceIncrease;
             if (randomValue < 0) {
                 return tc.type;
             }
@@ -60,8 +71,10 @@ class Tile {
 }
 
 Tile.Type = {
-    Street: "street",
-    Empty: "empty"
+    Street: Settings.tileTypes.Street.type,
+    Empty: Settings.tileTypes.Empty.type,
+    Go: Settings.tileTypes.Go.type,
+    Pay: Settings.tileTypes.Pay.type,
 }
 
 module.exports = Tile;

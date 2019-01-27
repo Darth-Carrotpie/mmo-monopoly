@@ -101,6 +101,8 @@ public class MessageTester : MonoBehaviour {
     void OnBoardReceived(Tile[] tiles) {
         int streets = 0;
         int empties = 0;
+        int gos = 0;
+        int pays = 0;
         for (int i = 0; i < tiles.Length; i++)
         {
             Tile tile = tiles[i];
@@ -110,10 +112,20 @@ public class MessageTester : MonoBehaviour {
             if (tile.typeId == TileType.Empty) {
                 empties++;
             }
+            if (tile.typeId == TileType.Go) {
+                gos++;
+            }
+            if (tile.typeId == TileType.Pay) {
+                pays++;
+            }
         }
         Debug.Log(
             "Board received.\n" +
-            "Tiles: " + tiles.Length + " Streets: " + streets + " Empty: " + empties
+            "Tiles: " + tiles.Length +
+            " Streets: " + streets +
+            " Empty: " + empties +
+            " Go: " + gos +
+            " Pay: " + pays
         );
     }
 

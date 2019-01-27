@@ -54,7 +54,7 @@ class Game {
         // BUILD
         Game.build(this.players, this.board);
         // ADVANCE, GET DOUBLE BONUS
-        Game.moveForward(this.players);
+        Game.moveForward(this.players, this.board);
         // SORT FROM BOARD START
         this.players.sort((a, b) => {
             return a.position - b.position;
@@ -70,7 +70,7 @@ class Game {
 
     static generateBoard() {
         const board = [];
-        board.push(Tile.Empty()); // First tile is always empty
+        board.push(Tile.Go()); // First tile is always empty
         for (let i = 0; i < Settings.boardSize; i++) {
             board.push(Game.randomTile(i));
         }
@@ -78,7 +78,7 @@ class Game {
     }
 
     static randomTile(place) {
-        const type = Tile.RandomType();
+        const type = Tile.RandomType(place);
         switch (type) {
             case Tile.Type.Empty:
                 return Tile.Empty();
@@ -86,6 +86,12 @@ class Game {
                 const cost = Settings.initialCost + Settings.costGrow * place;
                 const color = Tile.RandomColor();
                 return Tile.Street(cost, color);
+            case Tile.Type.Go:
+                return Tile.Go();
+            case Tile.Type.Pay:
+                const payCost = Math.floor((Settings.initialCost + Settings.costGrow * Math.pow(place, 1.5)) * Settings.payMultiplier);
+                // console.log("pay", place, payCost);
+                return Tile.Pay(payCost);
             default:
                 console.error("Unsupported tile type: " + type);
                 return Tile.Empty();
@@ -127,10 +133,22 @@ class Game {
         });
     }
 
-    static moveForward(players) {
+    static moveForward(players, board) {
         players.forEach(player => {
             rollDice(player.roll);
+            const initialPosition = player.position;
             player.position += player.roll.reduce((a, b) => a + b, 0);
+            const endPosition = player.position;
+
+            // Collecting GO
+            for (let i = initialPosition + 1; i + 1 < Math.min(endPosition, board.length); i++) {
+                const tile = board[i];
+                if (tile.type == Tile.Type.Go) {
+                    // TODO record transaction
+                    player.cash += Settings.goReward;
+                }
+            }
+
             // RESOLVE DOUBLE
             if (player.roll[0] == player.roll[1]) {
                 // Maybe record this, so server doesn't have to redo the logic?
@@ -145,6 +163,9 @@ class Game {
             const tile = board[player.position];
             if (tile.type == Tile.Type.Street) {
                 Game.payRent(players, player, tile.properties.cost);
+            } else if (tile.type == Tile.Type.Pay) {
+                // TODO record transaction
+                player.cash -= tile.properties.cost;
             }
         });
     }

@@ -1,9 +1,12 @@
 const Settings = {
-    // GAME
-    boardSize: 256,
+    // BOARD
+    boardSize: 512,
     initialCost: 100,
     costGrow: 20,
     hotelCostMultiplier: 2,
+    goReward: 200,
+    payMultiplier: 0.01,
+    // GAME
     diceMin: 1,
     diceMax: 6,
     diceCount: 2,
@@ -33,12 +36,26 @@ const Settings = {
         Street: {
             id: 0,
             type: "street",
-            chance: 5
+            chance: 5,
+            chanceIncrease: 0,
         },
         Empty: {
             id: 1,
             type: "empty",
-            chance: 1
+            chance: 1,
+            chanceIncrease: 0,
+        },
+        Go: {
+            id: 2,
+            type: "go",
+            chance: 1,
+            chanceIncrease: 0,
+        },
+        Pay: {
+            id: 3,
+            type: "pay",
+            chance: 1,
+            chanceIncrease: 0.02,
         }
     },
     // PLAYER

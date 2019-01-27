@@ -103,7 +103,9 @@ public class TileProperties {
 
 public enum TileType {
     Street = 0,
-    Empty = 1
+    Empty = 1,
+    Go = 2,
+    Pay = 3
 }
 
 [System.Serializable]
