@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface IMessenger {
     void Connect(System.Action<State> onStateReceived, System.Action<Tile[]> onBoardReceived);
-    void SelectAction(Action action);
+    void SelectAction(Action action, int turnCount);
 }
 
 public class DummyMessenger : IMessenger
@@ -45,7 +45,7 @@ public class DummyMessenger : IMessenger
         }
     }
 
-    public void SelectAction(Action action)
+    public void SelectAction(Action action, int turnCount)
     {
         // Don't care
     }
@@ -73,7 +73,7 @@ public class SocketMessenger : IMessenger {
         this.owner.StartCoroutine(this.ConnectSocket());
     }
 
-    public void SelectAction(Action action)
+    public void SelectAction(Action action, int turnCount)
     {
         if (ws == null || !ws.IsConnected()) {
             Debug.LogError("No connection to send message to");
@@ -81,7 +81,7 @@ public class SocketMessenger : IMessenger {
         }
 
         // TODO pass turn count
-        string message = IntentMessage.MakeIntentMessage(action, 0);
+        string message = IntentMessage.MakeIntentMessage(action, turnCount);
         ws.SendString(message);
     }
 
