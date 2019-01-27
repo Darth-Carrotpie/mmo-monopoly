@@ -75,6 +75,10 @@ public class Player {
     public int[] hotels;
     public int cash;
     public int[] roll;
+}
+
+[System.Serializable]
+public class MyPlayer : Player {
     public PossibleAction[] possibleActions;
 }
 
@@ -82,7 +86,7 @@ public class Player {
 public class State {
     public int turnCount;
     public Player[] players;
-    public Player me;
+    public MyPlayer me;
 }
 
 [System.Serializable]

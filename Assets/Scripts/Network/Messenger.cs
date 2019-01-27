@@ -37,7 +37,7 @@ public class DummyMessenger : IMessenger
     IEnumerator RunGame() {
         for (int i = 1; i <= 10; i++)
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
 
             string stateName = "state" + i + ".json";
             string stateJson = File.ReadAllText(Path.Combine(this.basePath, stateName));

@@ -81,7 +81,8 @@ public class MessageTester : MonoBehaviour {
     private IMessenger messenger;
 
     void Start() {
-        this.messenger = new SocketMessenger(this);
+        // this.messenger = new SocketMessenger(this);
+        this.messenger = new DummyMessenger(this);
         this.messenger.Connect(this.OnStateReceived, this.OnBoardReceived);
     }
 
@@ -92,7 +93,8 @@ public class MessageTester : MonoBehaviour {
             " Position: " + state.me.position +
             " Roll: " + MessageTester.ArrayString(state.me.roll) +
             " Houses: " + MessageTester.ArrayString(state.me.houses) +
-            " Hotels: " + MessageTester.ArrayString(state.me.hotels)
+            " Hotels: " + MessageTester.ArrayString(state.me.hotels) +
+            " PossibleActions: " + state.me.possibleActions.Length
         );
     }
 
