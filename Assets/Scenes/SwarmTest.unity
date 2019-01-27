@@ -374,7 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 0}
   players: []
-  playerPrefab: {fileID: 100000, guid: 1d694c5a9837fab498d406fff74089ba, type: 3}
+  playerPrefab: {fileID: 2534715639459649465, guid: 1ed693ee1ad13e24bbb8f20f1ab8eb65,
+    type: 3}
   playerModel:
   - {fileID: 77586380324873206, guid: 78c57dd54da5cc0408cdf506aaa3fd40, type: 3}
   - {fileID: 4202825563219145269, guid: 909609f635ec940478ea38e93516344a, type: 3}

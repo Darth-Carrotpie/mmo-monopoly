@@ -24,9 +24,11 @@ public class PlayersManager : MonoBehaviour
                 playerPresent = true;
         }
         if (!playerPresent){
-            players.Add(CreatePlayer(msg));
+            Player pl = CreatePlayer(msg);
+            players.Add(pl);
+            SetUps(pl);
         } else {
-            if(mainPlayer.tileAddress - 15 > position || mainPlayer.tileAddress- 50 < position){
+            if(mainPlayer.tileAddress - 12 > position || mainPlayer.tileAddress + 45 < position){
                 DestroyPlayer(id);
             }
         }
@@ -35,6 +37,7 @@ public class PlayersManager : MonoBehaviour
     void SetMainPlayer(GameMessage msg){
         if (mainPlayer == null){
             mainPlayer = CreatePlayer(msg);
+            SetUps(mainPlayer);
         }
     }
 
@@ -46,7 +49,12 @@ public class PlayersManager : MonoBehaviour
         newPlayer.transform.position = new Vector3(0, 0, 0);
         GameObject model = Instantiate(playerModel[pl.id%8], newPlayer.transform);
         model.transform.position = Vector3.zero;
+
         return pl;
+    }
+    void SetUps(Player pl){
+        pl.GetComponent<PlayerHop>().SetUp();
+        pl.GetComponent<SceneMovable>().SetUp();
     }
     void DestroyPlayer(int id){
         for(int i = players.Count-1; i >= 0; i--){

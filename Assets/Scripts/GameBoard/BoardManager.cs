@@ -18,7 +18,7 @@ public class BoardManager : MonoBehaviour
     }
 
     public void UpdateBoard(GameMessage msg){
-        Debug.Log("Updating Board");
+        //Debug.Log("Updating Board");
         //clear tiles who are behind player by more than 1
         for(int i = tiles.Count-1; i >= 0; i--){
             if (tiles[i].transform.position.z < 0){
@@ -28,7 +28,7 @@ public class BoardManager : MonoBehaviour
             }
         }
         //create new tiles
-        Debug.Log("creating");
+        //Debug.Log("creating");
         int lastIndex = GetLastIndex();
         int lastAddress = GetLastAdress();
            // Debug.Log(lastAddress);
