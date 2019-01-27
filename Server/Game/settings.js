@@ -1,6 +1,6 @@
 const Settings = {
     // BOARD
-    boardSize: 512,
+    boardSize: 1024,
     initialCost: 100,
     costGrow: 20,
     hotelCostMultiplier: 2,
