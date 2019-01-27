@@ -35,7 +35,7 @@ public class ClientConnect : MonoBehaviour
         //distribute new positions for players:
         for(int i=0; i < state.players.Length; i++){
             if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
-                EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
+                //EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
         }
         //distribute house and hotel locations:
@@ -55,7 +55,9 @@ public class ClientConnect : MonoBehaviour
 
 
     void OnBoardReceived(Messages.Tile[] tiles){
+        //Debug.Log("tiles"+tiles.Length);
         BoardTile[] boardTiles = Messages.BoardMessage.ToBoard(tiles);
+        //Debug.Log("tiles"+boardTiles.Length);
         EventManager.TriggerEvent(EventName.System.TilesDownloaded(), GameMessage.Write().WithBoardTiles(boardTiles));
     }
 }
