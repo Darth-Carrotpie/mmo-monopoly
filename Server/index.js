@@ -9,7 +9,9 @@ const room = new Room(game);
 
 setInterval(() => {
     room.tick();
+    room.addRobot();
 }, Config.tickInterval);
+// }, 1);
 
 const server = http.createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);

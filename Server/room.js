@@ -19,6 +19,10 @@ const stateMessage = (state) => {
     return message;
 }
 
+const randomItem = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 class Human {
     constructor(player, sendMessage, game) {
         this.player = player;
@@ -49,11 +53,31 @@ class Room {
     }
 
     tick() {
+        this.robots.forEach(robot => {
+            robot.intent = randomItem(robot.possibleActions(this.game.board).map((a) => a.type));
+        });
+
+        for (let i = this.robots.length - 1; i >= 0; i--) {
+            const robot = this.robots[i];
+            if (robot.cash < 0) {
+                this.robots.splice(i, 1);
+            }
+        }
+
+        const furthestRobot =  Math.max.apply(null, this.robots.map((r) => r.position));
+        const furthestHuman =  Math.max.apply(null, this.humans.map((h) => h.player.position));
+
         this.game.advance();
         this.humans.forEach(human => {
             human.sendMessage(stateMessage(this.game.getState(human.player.id)));
         });
-        console.log("TICK: " + this.game.turnCount);
+        console.log(
+            "TICK: " + this.game.turnCount +
+            " humans: " + this.humans.length +
+            " furthestHuman: " + furthestHuman +
+            " robots: " + this.robots.length +
+            " furthestRobot: " + furthestRobot
+            );
     }
 
     join(sendMessage) {
@@ -67,6 +91,10 @@ class Room {
         this.humans.splice(this.humans.indexOf(human));
     }
 
+    addRobot() {
+        const robot = this.game.addPlayer();
+        this.robots.push(robot);
+    }
 }
 
 module.exports = Room;
