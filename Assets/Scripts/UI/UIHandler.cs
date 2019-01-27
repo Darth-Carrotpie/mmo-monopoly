@@ -16,16 +16,26 @@ public class UIHandler : MonoBehaviour
     string moneyGainText;
     string moneyLossText;
 
+    int mainPlayerid;
+
     void Start()
     {
+        EventManager.StartListening(EventName.Player.SetMainPlayer(), SetMainPlayer);
+        EventManager.StartListening(EventName.Player.NewPosition(), UpdateScoreCount);
+
         EventManager.StartListening(EventName.UI.UpdWealth(), UpdateMoneyTotal);
         EventManager.StartListening(EventName.UI.UpdTransaction(), UpdateTransaction);
 
         EventManager.StartListening(EventName.System.Turn(), UpdateTurnRollCount);
-        EventManager.StartListening(EventName.Player.NewPosition(), UpdateScoreCount);
         EventManager.StartListening(EventName.UI.UpdLeaderboard(), UpdateLeaderboard);
 
         EventManager.StartListening(EventName.Player.PossibleAction(), UpdateButtons);
+    }
+
+    void SetMainPlayer(GameMessage msg)
+    {
+        Debug.Log("Setting main player id: " + msg.id);
+        this.mainPlayerid = msg.id;
     }
 
     void UpdateMoneyTotal(GameMessage msg)
@@ -84,17 +94,23 @@ public class UIHandler : MonoBehaviour
             lossSum += int.Parse(loss);
         }
 
+        FadeIn(MoneyBalanceCount.GetComponent<Graphic>());
+        FadeIn(MoneyTransactionCount.GetComponent<Graphic>());
+
         MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + (gainSum + lossSum).ToString();
+        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n" + moneyLossText;
 
-        FadeIn(MoneyTransactionCount.GetComponent<Graphic>()); 
-
-        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n \n" + moneyLossText;
-
+        FadeOut(MoneyBalanceCount.GetComponent<Graphic>());
         FadeOut(MoneyTransactionCount.GetComponent<Graphic>());
     }
 
     void UpdateScoreCount(GameMessage msg)
     {
+        if (msg.id != this.mainPlayerid) {
+            // Skiping other players
+            return;
+        }
+
         ScoreCount.GetComponent<Text>().text = "Score " + msg.position.ToString();
     }
 
@@ -110,12 +126,12 @@ public class UIHandler : MonoBehaviour
 
     void UpdateLeaderboard(GameMessage msg)
     {
-        LeaderboardText.GetComponent<Text>().text = msg.position.ToString();
+        //LeaderboardText.GetComponent<Text>().text = msg.position.ToString();
     }
 
     void UpdateButtons(GameMessage msg)
     {
-        //msg.possibleAction = 
+        //msg.possibleAction
     }
 
     void FadeIn(Graphic g)
