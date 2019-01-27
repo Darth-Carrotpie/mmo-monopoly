@@ -1,39 +1,63 @@
 fileFormatVersion: 2
-guid: 49fabde914dd60e4991b4ec119d1d538
+guid: 1d694c5a9837fab498d406fff74089ba
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube_001
-    100004: Cube_002
-    100006: Cylinder
-    100008: Cylinder_002
+    100000: Car
+    100002: cHESS_KING
+    100004: Hotel
+    100006: House
+    100008: Kinda_robot
     100010: //RootNode
-    400000: Cube
-    400002: Cube_001
-    400004: Cube_002
-    400006: Cylinder
-    400008: Cylinder_002
+    100012: Ship
+    100014: Shoe
+    100016: T_rex
+    100018: Top_hat
+    100020: UFO
+    400000: Car
+    400002: cHESS_KING
+    400004: Hotel
+    400006: House
+    400008: Kinda_robot
     400010: //RootNode
-    2100000: Metal
-    2300000: Cube
-    2300002: Cube_001
-    2300004: Cube_002
-    2300006: Cylinder
-    2300008: Cylinder_002
-    3300000: Cube
-    3300002: Cube_001
-    3300004: Cube_002
-    3300006: Cylinder
-    3300008: Cylinder_002
-    4300000: Cube_002
-    4300002: Cube_001
-    4300004: Cylinder_002
-    4300006: Cylinder
-    4300008: Cube
+    400012: Ship
+    400014: Shoe
+    400016: T_rex
+    400018: Top_hat
+    400020: UFO
+    2100000: unnamed
+    2300000: Car
+    2300002: cHESS_KING
+    2300004: Hotel
+    2300006: House
+    2300008: Kinda_robot
+    2300010: Ship
+    2300012: Shoe
+    2300014: T_rex
+    2300016: Top_hat
+    2300018: UFO
+    3300000: Car
+    3300002: cHESS_KING
+    3300004: Hotel
+    3300006: House
+    3300008: Kinda_robot
+    3300010: Ship
+    3300012: Shoe
+    3300014: T_rex
+    3300016: Top_hat
+    3300018: UFO
+    4300000: T_rex
+    4300002: UFO
+    4300004: Ship
+    4300006: Kinda_robot
+    4300008: cHESS_KING
+    4300010: Hotel
+    4300012: House
+    4300014: Car
+    4300016: Top_hat
+    4300018: Shoe
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -24,9 +24,11 @@ public class BoardNetwork : MonoBehaviour
             LoadDownloadedTiles(msg);
         else
             LoadLocalData(msg);
+        AssignRandomName();
     }
     void LoadDownloadedTiles(GameMessage msg){
         Debug.Log("Loading board data received from server");
+        tiles = msg.boardTiles;
     }
     private void LoadLocalData(GameMessage msg)
     {
@@ -39,7 +41,6 @@ public class BoardNetwork : MonoBehaviour
             BoardTileDataSerializable loadedData = JsonUtility.FromJson<BoardTileDataSerializable>(dataAsJson);
 
             tiles = loadedData.Export();
-            AssignRandomName();
         }
         else
         {

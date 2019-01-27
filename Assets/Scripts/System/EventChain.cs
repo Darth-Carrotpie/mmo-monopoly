@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EventChain : MonoBehaviour {
     //public Animator stateMachine;
-    void Start () {
+    void Awake () {
         EventManager.Attach(EventName.Player.NewPosition(), UpdateBoard);
         EventManager.Attach(EventName.System.TilesDownloaded(), UpdateBoard);
+
     }
 
     void UpdateBoard(GameMessage msg){
