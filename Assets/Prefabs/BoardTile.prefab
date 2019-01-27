@@ -636,7 +636,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2828449294240175168}
   - component: {fileID: 9177988283857777104}
-  - component: {fileID: 1135196203484614676}
   m_Layer: 0
   m_Name: BoardTile
   m_TagString: Untagged
@@ -684,22 +683,6 @@ MonoBehaviour:
   nameMesh: {fileID: 8180751428745581755}
   priceMesh: {fileID: 1065240564274674326}
   coloredHeader: {fileID: 1259019552}
---- !u!114 &1135196203484614676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3203249421384702555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e59878413b64442adab80dafc6e3cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPos: 0
-  currentPos: 0
-  mainPlayer: {fileID: 0}
-  totalDif: 0
 --- !u!1 &3730346024595568138
 GameObject:
   m_ObjectHideFlags: 0

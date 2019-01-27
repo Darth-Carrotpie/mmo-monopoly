@@ -33,8 +33,8 @@ public class ClientConnect : MonoBehaviour
 
         //distribute new positions for players:
         for(int i=0; i < state.players.Length; i++){
-            if(state.me.position - 30 > state.players[i].position || state.me.position + 60 < state.players[i].position){
-                EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
+            if(state.me.position - 30 < state.players[i].position && state.me.position + 60 > state.players[i].position){
+                EventManager.TriggerEvent(EventName.Player.PlayerState(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
         }
         //distribute house and hotel locations:

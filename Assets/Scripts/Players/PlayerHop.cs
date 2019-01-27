@@ -15,31 +15,32 @@ public class PlayerHop : MonoBehaviour
     float pseudoDelay = 0f;
     bool trigger;
     float newPos;
-    public int totalDif;
+    //public int totalDif;
     public Player mainPlayer;
     void Awake()
     {
         //mainPlayer = FindObjectOfType<PlayerNetwork>().player;
         EventManager.StartListening(EventName.Player.NewPosition(), NewPostionTrigger);
-        EventManager.StartListening(EventName.System.MoveBoard(), TriggerSceneMovement);
+        //EventManager.StartListening(EventName.System.MoveBoard(), TriggerSceneMovement);
     }
     public void SetUp(){
         mainPlayer = FindObjectOfType<PlayersManager>().mainPlayer;
         id = GetComponent<Player>().id;
     }
-    public void TriggerSceneMovement(GameMessage msg){
+    /* public void TriggerSceneMovement(GameMessage msg){
         //Debug.Log("TriggerSceneMovement hop: "+mainPlayer.tileAddress);
-        totalDif = - mainPlayer.tileAddress;
         id = GetComponent<Player>().id;
-    }
+        if (id != mainPlayer.id)
+            totalDif = - mainPlayer.tileAddress;
+    }*/
     void NewPostionTrigger(GameMessage msg){
-        //Debug.Log("trigered hop: "+id);
         if (id == msg.id){
             GenerateTimeToMove();
+            //Debug.Log("playerID: "+id+" pos: "+msg.position);
             //Debug.Log("trigered hop: Equals! +ID:"+id);
             trigger = true;
             timeCounter = 0;
-            newPos = msg.position + totalDif;
+            newPos = msg.position;
         }
     }
 
@@ -74,7 +75,7 @@ public class PlayerHop : MonoBehaviour
     }
 
     void OnDetroy(){
-        EventManager.StopListening(EventName.System.MoveBoard(), TriggerSceneMovement);
+        //EventManager.StopListening(EventName.System.MoveBoard(), TriggerSceneMovement);
         EventManager.StopListening(EventName.Player.NewPosition(), NewPostionTrigger);
     }
 }

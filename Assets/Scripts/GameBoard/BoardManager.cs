@@ -8,20 +8,20 @@ public class BoardManager : MonoBehaviour
     public GameObject tilePrefab;
     public int rangeForward = 30;
     BoardNetwork boardNetwork;
-    PlayerNetwork playerNetwork;
+    PlayersManager playersManager;
     void Awake()
     {
         boardNetwork = FindObjectOfType<BoardNetwork>();
-        playerNetwork = FindObjectOfType<PlayerNetwork>();
+        playersManager = FindObjectOfType<PlayersManager>();
         EventManager.StartListening(EventName.System.UpdateBoard(), UpdateBoard);
         //UpdateBoard(GameMessage.Write());
     }
 
     public void UpdateBoard(GameMessage msg){
-        //Debug.Log("Updating Board");
+        Debug.Log("Updating Board");
         //clear tiles who are behind player by more than 1
         for(int i = tiles.Count-1; i >= 0; i--){
-            if (tiles[i].transform.position.z < 0){
+            if (tiles[i].transform.position.z < playersManager.mainPlayer.tileAddress-13){
                 //Debug.Log("destroying: "+i);
                 Destroy(tiles[i].gameObject);
                 tiles.RemoveAt(i);
@@ -31,12 +31,9 @@ public class BoardManager : MonoBehaviour
         //Debug.Log("creating");
         int lastIndex = GetLastIndex();
         int lastAddress = GetLastAdress();
-           // Debug.Log(lastAddress);
-        for (int i = 0; i < rangeForward-lastIndex; i++){
+        for (int i = 0; i < rangeForward - lastAddress +  playersManager.mainPlayer.tileAddress; i++){
             GameObject newTile = Instantiate(tilePrefab, transform);
             BoardTile bt = newTile.GetComponent<BoardTile>();
-            //Debug.Log(bt.type);
-            //Debug.Log(playerNetwork.player.tileAddress+i);
             bt.Init(boardNetwork.tiles[lastAddress+i]);
             newTile.transform.position = new Vector3(0, 0, i+lastIndex);
             tiles.Add(bt);
@@ -64,7 +61,7 @@ public class BoardManager : MonoBehaviour
             }
             return index;
         }
-        Debug.Log("last"+index);
+        //Debug.Log("last"+index);
         return index;
     }
 }

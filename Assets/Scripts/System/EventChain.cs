@@ -5,15 +5,19 @@ using UnityEngine;
 public class EventChain : MonoBehaviour {
     //public Animator stateMachine;
     void Awake () {
+        EventManager.Attach(EventName.Player.PlayerState(), NewPosition);
         EventManager.Attach(EventName.Player.NewPosition(), UpdateBoard);
         EventManager.Attach(EventName.System.TilesDownloaded(), UpdateBoard);
-        EventManager.StartListening(EventName.System.UpdateBoard(), SetMainPlSceneRef);
+        EventManager.Attach(EventName.System.UpdateBoard(), SetMainPlSceneRef);
     }
 
+    void NewPosition(GameMessage msg){
+        EventManager.TriggerEvent(EventName.Player.NewPosition(), msg);
+    }
     void UpdateBoard(GameMessage msg){
-        EventManager.TriggerEvent(EventName.System.UpdateBoard(), GameMessage.Write());
+        EventManager.TriggerEvent(EventName.System.UpdateBoard(), msg);
     }
     void SetMainPlSceneRef(GameMessage msg){
-        EventManager.TriggerEvent(EventName.Player.SetMainPlSceneRef(), GameMessage.Write());
+        EventManager.TriggerEvent(EventName.Player.SetMainPlSceneRef(), msg);
     }
 }

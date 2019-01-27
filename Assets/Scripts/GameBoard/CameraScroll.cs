@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneMovable : MonoBehaviour
+public class CameraScroll : MonoBehaviour
 {
     public float newPos;
     float timeCounter;
@@ -10,43 +10,34 @@ public class SceneMovable : MonoBehaviour
     float timeToMove = 1f;
     public Player mainPlayer;
     
-    public int totalDif;
-
     bool trigger;
-
-    Player pl;
-    BoardTile bt;
     void Awake()
     {
         EventManager.StartListening(EventName.System.MoveBoard(), TriggerSceneMovement);
         EventManager.StartListening(EventName.Player.NewPosition(), NewPostionTrigger);
-        EventManager.StartListening(EventName.Player.SetMainPlSceneRef(), SetMainPlSceneRef);
+    }
+    void Start(){
+
     }
     void NewPostionTrigger(GameMessage msg){
         trigger = false;
     }
     public void TriggerSceneMovement(GameMessage msg){
+        Debug.Log("move cam");
         trigger = true;
         timeCounter = 0;
-        Debug.Log("moveScene");
         currentPos = transform.position.z;
-        if (pl)
-            newPos = pl.tileAddress - mainPlayer.tileAddress;
-        if (bt && mainPlayer){
-            newPos = bt.address - mainPlayer.tileAddress;
-            totalDif = - mainPlayer.tileAddress;
-        }
+        newPos = mainPlayer.tileAddress - 1.81f;
     }
     public void SetMainPlSceneRef(GameMessage msg){
         SetUp();
     }
     public void SetUp(){
         mainPlayer = FindObjectOfType<PlayersManager>().mainPlayer;
-        pl = GetComponent<Player>();
-        bt = GetComponent<BoardTile>();
     }
+
     void Update(){
-        if (newPos < currentPos && trigger){
+        if (newPos > currentPos && trigger){
             timeCounter+=Time.deltaTime;
             Moving();
         }
@@ -54,7 +45,7 @@ public class SceneMovable : MonoBehaviour
 
     void Moving(){
         float vecZ = Mathf.Lerp(currentPos, newPos, timeCounter/timeToMove);
-        transform.position = new Vector3(0, transform.position.y, vecZ);
+        transform.position = new Vector3(transform.position.x, transform.position.y, vecZ);
     }
     
     void OnDetroy(){

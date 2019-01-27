@@ -13,12 +13,13 @@ public class EventName
     }
     public class Player
     {
+        public static string PlayerState() { return "PlayerState"; }
         public static string NewPosition() { return "NewPosition"; }
         public static string SetMainPlayer() { return "SetMainPlayer"; }
         public static string SetMainPlSceneRef() { return "SetMainPlSceneRef"; }
         public static string PossibleAction() { return "PossibleAction"; }
         public static string Transaction() { return "Transaction"; }
-        public static List<string> Get() { return new List<string> { NewPosition(), SetMainPlayer(), PossibleAction(),SetMainPlSceneRef(), Transaction() }; }
+        public static List<string> Get() { return new List<string> { PlayerState(), NewPosition(), SetMainPlayer(), PossibleAction(),SetMainPlSceneRef(), Transaction() }; }
     }
     public class Input
     {
