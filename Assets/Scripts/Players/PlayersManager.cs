@@ -20,12 +20,20 @@ public class PlayersManager : MonoBehaviour
         int position = msg.position;
         bool playerPresent = false;
         for (int i = 0; i < players.Count; i++){
-            if (id == players[i].id || id == mainPlayer.id){
+            if (id == players[i].id ){
+                if (id == mainPlayer.id)
+                {
+                //Debug.Log("SetMainPlayer NewPlayerState");
+                    playerPresent = true;
+                    break;
+                    
+                }
                 playerPresent = true;
                 break;
             }
         }
         if (!playerPresent){
+            //Debug.Log("Creating player: "+id);
             Player pl = CreatePlayer(msg);
             players.Add(pl);
             pl.GetComponent<PlayerHop>().SetUp();
@@ -41,14 +49,16 @@ public class PlayersManager : MonoBehaviour
             Player me  = GetPlayer(msg.id);
             if (me){
                 mainPlayer = me;
-                Debug.Log("SetMainPlayer");
+                //Debug.Log("SetMainPlayer");
             }
         }
         if (mainPlayer == null){
-            Debug.Log("SetMainPlayer");
+            //Debug.Log("SetMainPlayer");
             mainPlayer = CreatePlayer(msg);
+            players.Add(mainPlayer);
             mainPlayer.GetComponent<PlayerHop>().SetUp();
             FindObjectOfType<CameraScroll>().SetUp();
+            //Debug.Log("Creating mainPlayer: "+msg.id);
         }
     }
 

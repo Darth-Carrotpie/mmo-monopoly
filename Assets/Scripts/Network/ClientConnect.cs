@@ -9,7 +9,7 @@ public class ClientConnect : MonoBehaviour
 
     void Start()
     {
-        messenger = new SocketMessenger(this);
+        messenger = new DummyMessenger(this);
         messenger.Connect(OnStateReceived, OnBoardReceived);
         EventManager.StartListening(EventName.Input.BuildHouse(), BuildHouse);
         EventManager.StartListening(EventName.Input.BuildHotel(), BuildHotel);

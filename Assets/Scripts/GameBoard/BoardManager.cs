@@ -18,8 +18,10 @@ public class BoardManager : MonoBehaviour
     }
 
     public void UpdateBoard(GameMessage msg){
-        Debug.Log("Updating Board");
+        //Debug.Log("Updating Board");
         //clear tiles who are behind player by more than 1
+        if (playersManager.mainPlayer == null)
+            return;
         for(int i = tiles.Count-1; i >= 0; i--){
             if (tiles[i].transform.position.z < playersManager.mainPlayer.tileAddress-13){
                 //Debug.Log("destroying: "+i);
