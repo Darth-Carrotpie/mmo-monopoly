@@ -109,13 +109,15 @@ class Game {
         for (var i = players.length - 1; i >= 0; i--) {
             const player = players[i];
             if (player.cash < 0) {
-                console.warn("Player went bankrupt", player);
+                // console.warn("Player went bankrupt", player);
                 players.splice(i, 1);
             }
+            /*
             if (player.position >= board.length) {
                 console.warn("Player over boundaries", player);
                 players.splice(i, 1);
             }
+            */
         }
     }
 
@@ -149,6 +151,8 @@ class Game {
             rollDice(player.roll);
             const initialPosition = player.position;
             player.position += player.roll.reduce((a, b) => a + b, 0);
+            // YOU SHALL NOT PASS
+            player.position = Math.min(player.position, Settings.boardSize - 1);
             const endPosition = player.position;
 
             // Collecting GO

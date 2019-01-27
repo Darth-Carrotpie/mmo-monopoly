@@ -8,28 +8,42 @@ public class Message {
     public string messageType;
 
     public static void ParseMessage(string json, System.Action<State> onStateReceived, System.Action<Tile[]> onBoardReceived) {
-        try
-        {
             Message message = JsonUtility.FromJson<Message>(json);
             switch (message.messageType)
             {
                 case "state":
-                    StateMessage stateMessage = JsonUtility.FromJson<StateMessage>(json);
+                    StateMessage stateMessage;
+                    try
+                    {
+                        stateMessage = JsonUtility.FromJson<StateMessage>(json);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogError("Failed to parse: " + json);
+                        Debug.LogError(ex.Message);
+                        return;
+                    }
                     onStateReceived(stateMessage.state);
                     break;
                 case "board":
-                    BoardMessage boardMessage = JsonUtility.FromJson<BoardMessage>(json);
+                    BoardMessage boardMessage;
+                    try
+                    {
+                        boardMessage = JsonUtility.FromJson<BoardMessage>(json);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogError("Failed to parse: " + json);
+                        Debug.LogError(ex.Message);
+                        return;
+                    }
                     onBoardReceived(boardMessage.board);
                     break;
                 default:
-                    throw new System.Exception("Unsupported messageType: " + message.messageType);
+                    Debug.LogError("Unsupported messageType: " + message.messageType);
+                    break;
             }
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError("Failed to parse: " + json);
-            Debug.LogError(ex.Message);
-        }
+
     }
 }
 

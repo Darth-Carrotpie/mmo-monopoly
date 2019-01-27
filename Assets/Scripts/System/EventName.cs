@@ -9,7 +9,8 @@ public class EventName
         public static string UpdLeaderboard() { return "UpdateTargetMarks"; }
         public static string UpdWealth() { return "UpdWealth"; }
         public static string UpdDistance() { return "UpdDistance"; }
-        public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance() }; }
+        public static string UpdTransaction() { return "UpdTransaction"; }
+        public static List<string> Get() { return new List<string> { UpdPlayerCount(), UpdLeaderboard(), UpdWealth(), UpdDistance(), UpdTransaction() }; }
     }
     public class Player
     {

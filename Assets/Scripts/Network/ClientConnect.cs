@@ -9,7 +9,7 @@ public class ClientConnect : MonoBehaviour
 
     void Start()
     {
-        messenger = new DummyMessenger(this);
+        messenger = new SocketMessenger(this);
         messenger.Connect(OnStateReceived, OnBoardReceived);
         EventManager.StartListening(EventName.Input.BuildHouse(), BuildHouse);
         EventManager.StartListening(EventName.Input.BuildHotel(), BuildHotel);
@@ -28,8 +28,10 @@ public class ClientConnect : MonoBehaviour
     }
 
     void OnStateReceived(Messages.State state){
+        Debug.Log("RECEIVING STATE");
         EventManager.TriggerEvent(EventName.Player.SetMainPlayer(), GameMessage.Write().WithID(state.me.id).WithPosition(state.me.position).WithRoll(state.me.roll));
         EventManager.TriggerEvent(EventName.Player.PossibleAction(), GameMessage.Write().WithPossibleAction(state.me.possibleActions));
+        EventManager.TriggerEvent(EventName.UI.UpdTransaction(), GameMessage.Write().WithTransaction(state.me.transactions));
 
         //distribute new positions for players:
         for(int i=0; i < state.players.Length; i++){
@@ -42,9 +44,10 @@ public class ClientConnect : MonoBehaviour
             if(state.me.position - 15 > state.players[i].position || state.me.position - 50 < state.players[i].position){
                 EventManager.TriggerEvent(EventName.Player.NewPosition(), GameMessage.Write().WithID(state.players[i].id).WithPosition(state.players[i].position));
             }
-        }   */  
+        }   */
 
         EventManager.TriggerEvent(EventName.UI.UpdWealth(), GameMessage.Write().WithCount(state.me.cash));
+        EventManager.TriggerEvent(EventName.UI.UpdTransaction(), GameMessage.Write().WithTransaction(state.me.transactions));
 
         //end of all message shoots
         EventManager.TriggerEvent(EventName.System.Turn(), GameMessage.Write().WithCount(state.turnCount).WithRoll(state.me.roll));
@@ -54,6 +57,7 @@ public class ClientConnect : MonoBehaviour
 
 
     void OnBoardReceived(Messages.Tile[] tiles){
+        Debug.Log("RECEIVING BOARD");
         //Debug.Log("tiles"+tiles.Length);
         BoardTile[] boardTiles = Messages.BoardMessage.ToBoard(tiles);
         //Debug.Log("tiles"+boardTiles.Length);
