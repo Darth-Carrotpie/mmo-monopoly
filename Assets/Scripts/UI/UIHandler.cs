@@ -94,12 +94,13 @@ public class UIHandler : MonoBehaviour
             lossSum += int.Parse(loss);
         }
 
-        MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + (gainSum + lossSum).ToString();
-
+        FadeIn(MoneyBalanceCount.GetComponent<Graphic>());
         FadeIn(MoneyTransactionCount.GetComponent<Graphic>());
 
-        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n \n" + moneyLossText;
+        MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + (gainSum + lossSum).ToString();
+        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n" + moneyLossText;
 
+        FadeOut(MoneyBalanceCount.GetComponent<Graphic>());
         FadeOut(MoneyTransactionCount.GetComponent<Graphic>());
     }
 
@@ -125,12 +126,12 @@ public class UIHandler : MonoBehaviour
 
     void UpdateLeaderboard(GameMessage msg)
     {
-        LeaderboardText.GetComponent<Text>().text = msg.position.ToString();
+        //LeaderboardText.GetComponent<Text>().text = msg.position.ToString();
     }
 
     void UpdateButtons(GameMessage msg)
     {
-        //msg.possibleAction =
+        //msg.possibleAction
     }
 
     void FadeIn(Graphic g)
