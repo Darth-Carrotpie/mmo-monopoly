@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,7 @@ public class UIHandler : MonoBehaviour
 
     void UpdateMoneyTotal(GameMessage msg)
     {
-        MoneyTotalCount.GetComponent<Text>().text = "Money $" + msg.count.ToString();
+        MoneyTotalCount.GetComponent<Text>().text = "Money " + ((msg.count < 0) ? "-" : "") + "$" + Math.Abs(msg.count).ToString();
     }
 
     void UpdateTransaction(GameMessage msg)
@@ -48,8 +49,7 @@ public class UIHandler : MonoBehaviour
         moneyGainText = "";
         moneyLossText = "";
 
-        int gainSum = 0;
-        int lossSum = 0;
+        int netSum = 0;
         /*
             RollDouble = 0,
             PassGo = 1,
@@ -90,18 +90,20 @@ public class UIHandler : MonoBehaviour
                 moneyLossText += "\n -$" + loss + ". You built property.";
             }
 
-            gainSum += int.Parse(gain);
-            lossSum += int.Parse(loss);
+            netSum += int.Parse(gain) - int.Parse(loss);
         }
 
-        FadeIn(MoneyBalanceCount.GetComponent<Graphic>());
-        FadeIn(MoneyTransactionCount.GetComponent<Graphic>());
+        if (moneyGainText != "" || moneyLossText != "")
+        {
+            FadeIn(MoneyBalanceCount.GetComponent<Graphic>());
+            FadeIn(MoneyTransactionCount.GetComponent<Graphic>());
 
-        MoneyBalanceCount.GetComponent<Text>().text = "Balance $" + (gainSum + lossSum).ToString();
-        MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n" + moneyLossText;
+            MoneyBalanceCount.GetComponent<Text>().text = "Balance " + ((netSum < 0) ? "-" : "") + "$" + Math.Abs(netSum).ToString();
+            MoneyTransactionCount.GetComponent<Text>().text = moneyGainText + "\n" + moneyLossText;
 
-        FadeOut(MoneyBalanceCount.GetComponent<Graphic>());
-        FadeOut(MoneyTransactionCount.GetComponent<Graphic>());
+            FadeOut(MoneyBalanceCount.GetComponent<Graphic>());
+            FadeOut(MoneyTransactionCount.GetComponent<Graphic>());
+        }
     }
 
     void UpdateScoreCount(GameMessage msg)
